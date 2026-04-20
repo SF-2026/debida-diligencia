@@ -304,16 +304,18 @@ const v=id=>{const e=el(id);return e?e.value.trim():"";};
 const rv=n=>{const e=document.querySelector(`input[name="${n}"]:checked`);return e?e.value:"";};
 const chks=c=>[...document.querySelectorAll(`.${c}:checked`)].map(e=>e.value).join(", ");
 function sel(opts,id,req=false){
-  return `<select id="${id}"${req?' class="req-s"':''}>
-    <option value="">— Seleccionar —</option>
-    ${opts.map(o=>`<option>${o}</option>`).join("")}
-  </select>`;
+  return '<select id="'+id+'"'+(req?' class="req-s"':'')+'>'+
+    '<option value="">— Seleccionar —</option>'+
+    opts.map(function(o){return '<option>'+o+'</option>';}).join('')+
+  '</select>';
 }
 function fld(label,inp,req=false){
-  return `<div class="fld"><label>${label}${req?'<span class="req">*</span>':''}</label>${inp}</div>`;
+  return '<div class="fld"><label>'+label+(req?'<span class="req">*</span>':'')+'</label>'+inp+'</div>';
 }
 function rads(opts,name){
-  return `<div class="rr">${opts.map(o=>`<label class="ri"><input type="radio" name="${name}" value="${o}"> ${o}</label>`).join("")}</div>`;
+  return '<div class="rr">'+opts.map(function(o){
+    return '<label class="ri"><input type="radio" name="'+name+'" value="'+o+'"> '+o+'</label>';
+  }).join('')+'</div>';
 }
 
 // ══════════════════════════════════════════════════════════
@@ -342,7 +344,7 @@ function buildForm(){
   el("ts").textContent="Prevención de Lavado de Activos"+(anio?" · "+anio:"");
 
   // Progress
-  el("pb").innerHTML=SECS.map((s,i)=>`<div class="ps${i===0?" active":""}" onclick="scrollSec('${s.id}')">${s.n}. ${s.t.replace(/^[IVX↪]+\.\s*/,"").substring(0,18)}</div>`).join("");
+  el("pb").innerHTML=SECS.map((s,i)=>`<div class="ps${i===0?" active":""}" onclick="scrollSec('${s.id}')">${s.n}. ${s.t.split(". ").slice(1).join(". ").substring(0,18)||s.t.substring(0,18)}</div>`).join("");
 
   // Matrizadores
   const us=el("user-select");
@@ -376,8 +378,8 @@ function buildForm(){
       <div class="ag" id="ag">
         ${CFG.tipoActos.map(a=>`<label class="ai"><input type="checkbox" value="${a}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${a}</label>`).join("")}
         <label class="ai" style="grid-column:1/-1">
-          <input type="checkbox" id="ao2" value="Otro" onchange="this.closest('label').classList.toggle('sel',this.checked)"> Otro:
-          <input type="text" id="ao2t" placeholder="Especifique..." style="display:inline-block;width:175px;margin-left:7px;padding:3px 7px;font-size:10px" onclick="event.stopPropagation()">
+          <input type="checkbox" id="chk_otro" value="Otro" onchange="this.closest('label').classList.toggle('sel',this.checked)"> Otro:
+          <input type="text" id="chk_otro_txt" placeholder="Especifique..." style="display:inline-block;width:175px;margin-left:7px;padding:3px 7px;font-size:10px" onclick="event.stopPropagation()">
         </label>
       </div>
     </div>`;
@@ -566,7 +568,7 @@ function toggleCony(val){
 // ══════════════════════════════════════════════════════════
 function recolectar(){
   const actos=CFG.tipoActos.map(a=>{const cb=document.querySelector(`#ag input[value="${a}"]`);return cb&&cb.checked?"Sí":"No";});
-  const actoOtro=el("ao2")&&el("ao2").checked?v("ao2t"):"";
+  const actoOtro=el("chk_otro")&&el("chk_otro").checked?v("ao2t"):"";
   const bases=BASES.map(b=>{const cb=document.querySelector(`.bchk[value="${b}"]`);return cb&&cb.checked?"Sí":"No";});
   const factores=[...document.querySelectorAll(".rfact:checked")].map(e=>e.value).join(", ");
   const respDocs=chks("rdoc");
@@ -647,9 +649,7 @@ function validar(){
 // ══════════════════════════════════════════════════════════
 async function guardar(){
   const errs=validar();
-  if(errs.length){ modal("⚠️","Campos incompletos","Complete:
-"+errs.join("
-"),false); return; }
+  if(errs.length){ modal("⚠️","Campos requeridos incompletos","Por favor complete: "+errs.join(" · "),false); return; }
   el("bsv").disabled=true; el("bsv").textContent="⏳ Guardando...";
   el("sp").textContent="⏳ Enviando"; el("sp").className="saving";
   const datos=recolectar();
