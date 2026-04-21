@@ -153,7 +153,7 @@ textarea{resize:vertical;min-height:58px}
 .pb2.on{background:#0D7377;border-color:#0D7377;color:#fff}
 .pbas{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 7px}
 .pr{display:inline-block;padding:2px 10px;border-radius:10px;font-weight:800;font-size:8.5pt;border:1.5px solid}
-.pfir{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.pfir{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:6px}
 .pfb{border:1px solid #CBD5E1;min-height:50px;padding:5px 7px;display:flex;flex-direction:column;justify-content:flex-end}
 .pfl{border-top:1.5px solid #555;margin-top:24px}
 .pfl2{font-size:6.5pt;text-align:center;margin-top:2px;color:#555}
@@ -169,10 +169,10 @@ textarea{resize:vertical;min-height:58px}
     <p id="ts">Prevención de Lavado de Activos</p>
   </div>
   <div class="tr">
-    <select id="user-select" onchange="setUser(this.value)">
+    <select id="user-select" onchange="_f22(this.value)">
       <option value="">— Seleccionar matrizador —</option>
     </select>
-    <div id="sp" onclick="abrirAdmin()" title="Configuración">⚙ Configurar</div>
+    <div id="sp" onclick="_f01()" title="Configuración">⚙ Configurar</div>
   </div>
 </div>
 
@@ -181,10 +181,10 @@ textarea{resize:vertical;min-height:58px}
   <div id="pb"></div>
   <div id="fs"></div>
   <div class="br" id="ba" style="display:none">
-    <button class="btn bs" onclick="imprimirFormulario()">🖨️ Imprimir A4</button>
-    <button class="btn bo"  onclick="abrirHistorial()">📋 Historial / Reimprimir</button>
-    <button class="btn bo"  onclick="limpiar()">↺ Nuevo</button>
-    <button class="btn bp"  id="bsv" onclick="guardar()" disabled>💾 Guardar</button>
+    <button class="btn bs" onclick="_f12()">🖨️ Imprimir A4</button>
+    <button class="btn bo"  onclick="_f14()">📋 Historial / Reimprimir</button>
+    <button class="btn bo"  onclick="_f11()">↺ Nuevo</button>
+    <button class="btn bp"  id="bsv" onclick="_f08()" disabled>💾 Guardar</button>
   </div>
 </div>
 
@@ -193,8 +193,8 @@ textarea{resize:vertical;min-height:58px}
   <div class="ic" id="mi">✅</div>
   <h3 id="mt"></h3><p id="mm"></p>
   <div class="br">
-    <button class="btn bs" id="mbp" onclick="imprimirFormulario()">🖨️ Imprimir</button>
-    <button class="btn bp" id="mbo" onclick="cerrarModal()">Cerrar</button>
+    <button class="btn bs" id="mbp" onclick="_f12()">🖨️ Imprimir</button>
+    <button class="btn bp" id="mbo" onclick="_f18()">Cerrar</button>
   </div>
 </div></div>
 
@@ -202,7 +202,7 @@ textarea{resize:vertical;min-height:58px}
 <div id="hp"><div id="hb">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
     <h3 style="font-size:15px;font-weight:800;color:#1B3A6B">📋 Historial — Formularios guardados</h3>
-    <button onclick="cerrarHistorial()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#888">✕</button>
+    <button onclick="_f15()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#888">✕</button>
   </div>
   <p style="font-size:11px;color:#666;margin-bottom:12px">Clic en un registro para cargarlo y reimprimir. Se guardan los últimos 50 en este navegador.</p>
   <div id="hl"></div>
@@ -214,18 +214,18 @@ textarea{resize:vertical;min-height:58px}
   <div id="alv">
     <h3 style="font-size:15px;font-weight:800;color:#1B3A6B;margin-bottom:5px">🔐 Panel de Administración</h3>
     <p style="font-size:11px;color:#555;margin-bottom:13px">Contraseña requerida para configurar el sistema.</p>
-    <input type="password" id="api" class="ci" placeholder="Contraseña de administrador" onkeydown="if(event.key==='Enter')chkP()">
+    <input type="password" id="api" class="ci" placeholder="Contraseña de administrador" onkeydown="if(event.key==='Enter')_f03()">
     <div id="ape" style="color:#B71C1C;font-size:10px;display:none;margin-bottom:8px">❌ Contraseña incorrecta</div>
     <div style="display:flex;gap:8px">
-      <button onclick="chkP()" class="btn bs" style="font-size:12px;padding:9px 18px">Ingresar</button>
-      <button onclick="cerrarAdmin()" class="btn bo" style="font-size:12px;padding:9px 18px">Cancelar</button>
+      <button onclick="_f03()" class="btn bs" style="font-size:12px;padding:9px 18px">Ingresar</button>
+      <button onclick="_f02()" class="btn bo" style="font-size:12px;padding:9px 18px">Cancelar</button>
     </div>
   </div>
   <!-- Panel -->
   <div id="apv" style="display:none">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
       <h3 style="font-size:15px;font-weight:800;color:#1B3A6B">⚙ Configuración de la Notaría</h3>
-      <button onclick="cerrarAdmin()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#888">✕</button>
+      <button onclick="_f02()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#888">✕</button>
     </div>
 
     <label class="cl">🏛 Nombre de la Notaría <span style="color:#B71C1C">*</span></label>
@@ -237,7 +237,7 @@ textarea{resize:vertical;min-height:58px}
     <label class="cl">🔗 URL del Apps Script (termina en /exec) <span style="color:#B71C1C">*</span></label>
     <input type="text" id="cs" class="ci" placeholder="https://script.google.com/macros/s/.../exec" style="font-family:monospace;font-size:10px">
     <div style="display:flex;gap:8px;align-items:center;margin-top:-7px;margin-bottom:12px">
-      <button onclick="probarScript()" class="btn bo" style="font-size:11px;padding:5px 13px">🔌 Probar</button>
+      <button onclick="_f04()" class="btn bo" style="font-size:11px;padding:5px 13px">🔌 Probar</button>
       <span id="csr" style="font-size:10px"></span>
     </div>
 
@@ -258,8 +258,8 @@ textarea{resize:vertical;min-height:58px}
 
     <div id="cmsg" style="display:none;padding:9px 12px;border-radius:7px;font-size:11px;margin-bottom:10px"></div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button onclick="guardarCFG()" class="btn bp" style="font-size:12px">💾 Guardar configuración</button>
-      <button onclick="cerrarAdmin()" class="btn bo" style="font-size:12px">Cerrar</button>
+      <button onclick="_f05()" class="btn bp" style="font-size:12px">💾 Guardar configuración</button>
+      <button onclick="_f02()" class="btn bo" style="font-size:12px">Cerrar</button>
     </div>
     <p style="font-size:9px;color:#aaa;margin-top:10px">⚠ La configuración se guarda en este navegador. Debe configurar cada equipo que use el formulario.</p>
   </div>
@@ -269,676 +269,578 @@ textarea{resize:vertical;min-height:58px}
 <div id="pd"></div>
 
 <script>
-// ══════════════════════════════════════════════════════════
-// CONFIGURACIÓN
-// ══════════════════════════════════════════════════════════
-const PASS_DEF = "admin2026";
-const NACS_DEF  = ["Afgana", "Albanesa", "Alemana", "Andorrana", "Angoleña", "Antiguana", "Argentina", "Armenia", "Australiana", "Austriaca", "Azerbaiyana", "Bahameña", "Bareinita", "Bangladesí", "Barbadense", "Bielorrusa", "Belga", "Beliceña", "Beninesa", "Butanesa", "Boliviana", "Bosnia", "Botsuanesa", "Brasileña", "Bruneana", "Búlgara", "Burkinesa", "Burundesa", "Caboverdiana", "Camboyesa", "Camerunesa", "Canadiense", "Catarí", "Chadiana", "Chilena", "China", "Chipriota", "Colombiana", "Comorense", "Congoleña", "Costarricense", "Croata", "Cubana", "Danesa", "Dominicana", "Ecuatoguineana", "Ecuatoriana", "Egipcia", "Salvadoreña", "Emiratense", "Eritrea", "Eslovaca", "Eslovena", "Española", "Estadounidense", "Estonia", "Etíope", "Fiyiana", "Filipina", "Finlandesa", "Francesa", "Gabonesa", "Gambiana", "Georgiana", "Ghanesa", "Granadina", "Griega", "Guatemalteca", "Guineana", "Guineano-bisauense", "Guyanesa", "Haitiana", "Hondureña", "Húngara", "India", "Indonesia", "Iraní", "Iraquí", "Irlandesa", "Islandesa", "Israelí", "Italiana", "Jamaicana", "Japonesa", "Jordana", "Kazaja", "Keniana", "Kirguís", "Kiribatiana", "Kuwaití", "Laosiana", "Lesotense", "Letona", "Libanesa", "Liberiana", "Libia", "Liechtensteiniana", "Lituana", "Luxemburguesa", "Macedoniana", "Malgache", "Malauiana", "Malaya", "Maldiva", "Maliense", "Maltesa", "Marfileña", "Marroquí", "Mauriciana", "Mauritana", "Mexicana", "Micronesia", "Moldava", "Monegasca", "Mongola", "Montenegrina", "Mozambiqueña", "Namibia", "Nauruense", "Nepalesa", "Nicaragüense", "Nigerina", "Nigeriana", "Noruega", "Neozelandesa", "Omaní", "Pakistaní", "Palauana", "Palestina", "Panameña", "Papuana", "Paraguaya", "Peruana", "Polaca", "Portuguesa", "Ruandesa", "Rumana", "Rusa", "Samoana", "Sanmarinense", "Santomasense", "Saudí", "Senegalesa", "Serbia", "Seychellense", "Sierraleonesa", "Singapurense", "Siria", "Somalí", "Ceilandesa", "Sudafricana", "Sudanesa", "Sudanesa del Sur", "Sueca", "Suiza", "Surinamesa", "Suazi", "Tailandesa", "Tanzana", "Timorense", "Togolesa", "Tongana", "Trinitense", "Tunecina", "Turca", "Turcomana", "Tuvaluense", "Ugandesa", "Ucraniana", "Uruguaya", "Uzbeka", "Vanuatense", "Venezolana", "Vietnamita", "Yemení", "Yibutiana", "Zambiana", "Zimbabuense"];
-const PROFS_DEF = ["Abogado/a", "Administrador/a de Empresas", "Agrónomo/a", "Arquitecto/a", "Auditor/a", "Biólogo/a", "Chef / Cocinero/a", "Científico/a", "Comerciante", "Comunicador/a Social", "Contador/a Público/a", "Diplomático/a", "Economista", "Educador/a / Docente", "Empleado/a Público/a", "Enfermero/a", "Escritor/a", "Estudiante", "Fotógrafo/a", "Funcionario/a de Gobierno", "Geólogo/a", "Gerente", "Independiente / Freelance", "Ingeniero/a Civil", "Ingeniero/a de Sistemas", "Ingeniero/a Eléctrico/a", "Ingeniero/a Industrial", "Ingeniero/a Mecánico/a", "Jubilado/a / Pensionista", "Médico/a", "Militar / Policía", "Músico/a", "Notario/a", "Odontólogo/a", "Periodista", "Psicólogo/a", "Químico/a farmacéutico/a", "Servidor/a Público/a", "Técnico/a", "Trabajador/a Social", "Transportista", "Veterinario/a", "Otros"];
-const ACTOS_DEF = ["Promesas de celebrar contratos", "Compraventa", "Transferencia de dominio / constitución de hipoteca", "Constitución de hipoteca", "Donación", "Permuta", "Liquidación de la sociedad conyugal", "Liquidación de la sociedad de bienes", "Dación en pago", "Cesión de derechos onerosos", "Comodato", "Constitución de consorcios con cuantía determinada", "Traspaso de un crédito con cuantía", "Cesión de participaciones"];
-const MATZ_DEF  = ["Matrizador 1", "Matrizador 2", "Matrizador 3", "Matrizador 4", "Matrizador 5", "Matrizador 6", "Matrizador 7", "Matrizador 8", "Matrizador 9", "Matrizador 10"];
-const BASES = ["Fiscalía General del Estado","Función Judicial (consulta de procesos)","Superintendencia de Compañías","Servicio de Rentas Internas","Listas restrictivas nacionales e internacionales"];
-const RFACTORES = ["Inconsistencia económica","Monto elevado","Vinculación penal directa","Vinculación penal indirecta","Actividad económica sensible","Operación inusual","Estructura societaria compleja","Cliente nuevo"];
-
-let CFG = {};
-function cargaCFG(){
-  try{ CFG = JSON.parse(localStorage.getItem("dd_cfg")||"{}"); }catch(e){ CFG={}; }
-  CFG.nombre   = CFG.nombre   || "";
-  CFG.anio     = CFG.anio     || new Date().getFullYear()+"";
-  CFG.scriptUrl= CFG.scriptUrl|| "";
-  CFG.pass     = CFG.pass     || PASS_DEF;
-  CFG.matrizadores   = CFG.matrizadores   || MATZ_DEF;
-  CFG.tipoActos      = CFG.tipoActos      || ACTOS_DEF;
-  CFG.nacionalidades = CFG.nacionalidades || NACS_DEF;
-  CFG.profesiones    = CFG.profesiones    || PROFS_DEF;
+const _v08=atob("YWRtaW4yMDI2");
+const _v09  = ["Afgana", "Albanesa", "Alemana", "Andorrana", "Angoleña", "Antiguana", "Argentina", "Armenia", "Australiana", "Austriaca", "Azerbaiyana", "Bahameña", "Bareinita", "Bangladesí", "Barbadense", "Bielorrusa", "Belga", "Beliceña", "Beninesa", "Butanesa", "Boliviana", "Bosnia", "Botsuanesa", "Brasileña", "Bruneana", "Búlgara", "Burkinesa", "Burundesa", "Caboverdiana", "Camboyesa", "Camerunesa", "Canadiense", "Catarí", "Chadiana", "Chilena", "China", "Chipriota", "Colombiana", "Comorense", "Congoleña", "Costarricense", "Croata", "Cubana", "Danesa", "Dominicana", "Ecuatoguineana", "Ecuatoriana", "Egipcia", "Salvadoreña", "Emiratense", "Eritrea", "Eslovaca", "Eslovena", "Española", "Estadounidense", "Estonia", "Etíope", "Fiyiana", "Filipina", "Finlandesa", "Francesa", "Gabonesa", "Gambiana", "Georgiana", "Ghanesa", "Granadina", "Griega", "Guatemalteca", "Guineana", "Guineano-bisauense", "Guyanesa", "Haitiana", "Hondureña", "Húngara", "India", "Indonesia", "Iraní", "Iraquí", "Irlandesa", "Islandesa", "Israelí", "Italiana", "Jamaicana", "Japonesa", "Jordana", "Kazaja", "Keniana", "Kirguís", "Kiribatiana", "Kuwaití", "Laosiana", "Lesotense", "Letona", "Libanesa", "Liberiana", "Libia", "Liechtensteiniana", "Lituana", "Luxemburguesa", "Macedoniana", "Malgache", "Malauiana", "Malaya", "Maldiva", "Maliense", "Maltesa", "Marfileña", "Marroquí", "Mauriciana", "Mauritana", "Mexicana", "Micronesia", "Moldava", "Monegasca", "Mongola", "Montenegrina", "Mozambiqueña", "Namibia", "Nauruense", "Nepalesa", "Nicaragüense", "Nigerina", "Nigeriana", "Noruega", "Neozelandesa", "Omaní", "Pakistaní", "Palauana", "Palestina", "Panameña", "Papuana", "Paraguaya", "Peruana", "Polaca", "Portuguesa", "Ruandesa", "Rumana", "Rusa", "Samoana", "Sanmarinense", "Santomasense", "Saudí", "Senegalesa", "Serbia", "Seychellense", "Sierraleonesa", "Singapurense", "Siria", "Somalí", "Ceilandesa", "Sudafricana", "Sudanesa", "Sudanesa del Sur", "Sueca", "Suiza", "Surinamesa", "Suazi", "Tailandesa", "Tanzana", "Timorense", "Togolesa", "Tongana", "Trinitense", "Tunecina", "Turca", "Turcomana", "Tuvaluense", "Ugandesa", "Ucraniana", "Uruguaya", "Uzbeka", "Vanuatense", "Venezolana", "Vietnamita", "Yemení", "Yibutiana", "Zambiana", "Zimbabuense"];
+const _v10 = ["Abogado/a", "Administrador/a de Empresas", "Agrónomo/a", "Arquitecto/a", "Auditor/a", "Biólogo/a", "Chef / Cocinero/a", "Científico/a", "Comerciante", "Comunicador/a Social", "Contador/a Público/a", "Diplomático/a", "Economista", "Educador/a / Docente", "Empleado/a Público/a", "Enfermero/a", "Escritor/a", "Estudiante", "Fotógrafo/a", "Funcionario/a de Gobierno", "Geólogo/a", "Gerente", "Independiente / Freelance", "Ingeniero/a Civil", "Ingeniero/a de Sistemas", "Ingeniero/a Eléctrico/a", "Ingeniero/a Industrial", "Ingeniero/a Mecánico/a", "Jubilado/a / Pensionista", "Médico/a", "Militar / Policía", "Músico/a", "Notario/a", "Odontólogo/a", "Periodista", "Psicólogo/a", "Químico/a farmacéutico/a", "Servidor/a Público/a", "Técnico/a", "Trabajador/a Social", "Transportista", "Veterinario/a", "Otros"];
+const _v11 = ["Promesas de celebrar contratos", "Compraventa", "Transferencia de dominio / constitución de hipoteca", "Constitución de hipoteca", "Donación", "Permuta", "Liquidación de la sociedad conyugal", "Liquidación de la sociedad de bienes", "Dación en pago", "Cesión de derechos onerosos", "Comodato", "Constitución de consorcios con cuantía determinada", "Traspaso de un crédito con cuantía", "Cesión de participaciones"];
+const _v12  = ["Matrizador 1", "Matrizador 2", "Matrizador 3", "Matrizador 4", "Matrizador 5", "Matrizador 6", "Matrizador 7", "Matrizador 8", "Matrizador 9", "Matrizador 10"];
+const _v05 = ["Fiscalía General del Estado","Función Judicial (consulta de procesos)","Superintendencia de Compañías","Servicio de Rentas Internas","Listas restrictivas nacionales e internacionales"];
+const _v06 = ["Inconsistencia económica","Monto elevado","Vinculación penal directa","Vinculación penal indirecta","Actividad económica sensible","Operación inusual","Estructura societaria compleja","Cliente nuevo"];
+let _v13 = {};
+function _f24(){
+try{ _v13 = JSON.parse(localStorage.getItem("dd_cfg")||"{}"); }catch(e){ _v13={}; }
+_v13.nombre   = _v13.nombre   || "";
+_v13.anio     = _v13.anio     || new Date().getFullYear()+"";
+_v13.scriptUrl= _v13.scriptUrl|| "";
+_v13.pass     = _v13.pass     || _v08;
+_v13.matrizadores   = _v13.matrizadores   || _v12;
+_v13.tipoActos      = _v13.tipoActos      || _v11;
+_v13.nacionalidades = _v13.nacionalidades || _v09;
+_v13.profesiones    = _v13.profesiones    || _v10;
 }
-cargaCFG();
-
-let currentUser="", nivelRiesgo="", apiOk=false;
-let historial=[];
-try{ historial=JSON.parse(localStorage.getItem("dd_hist")||"[]"); }catch(e){}
-
-// helpers
+_f24();
+let _v01="", _v02="", _v03=false;
+let _v04=[];
+try{ _v04=JSON.parse(localStorage.getItem("dd_hist")||"[]"); }catch(e){}
 const el=id=>document.getElementById(id);
 const v=id=>{const e=el(id);return e?e.value.trim():"";};
 const rv=n=>{const e=document.querySelector(`input[name="${n}"]:checked`);return e?e.value:"";};
 const chks=c=>[...document.querySelectorAll(`.${c}:checked`)].map(e=>e.value).join(", ");
 function sel(opts,id,req=false){
-  return '<select id="'+id+'"'+(req?' class="req-s"':'')+'>'+
-    '<option value="">— Seleccionar —</option>'+
-    opts.map(function(o){return '<option>'+o+'</option>';}).join('')+
-  '</select>';
+return '<select id="'+id+'"'+(req?' class="req-s"':'')+'>'+
+'<option value="">— Seleccionar —</option>'+
+opts.map(function(o){return '<option>'+o+'</option>';}).join('')+
+'</select>';
 }
 function fld(label,inp,req=false){
-  return '<div class="fld"><label>'+label+(req?'<span class="req">*</span>':'')+'</label>'+inp+'</div>';
+return '<div class="fld"><label>'+label+(req?'<span class="req">*</span>':'')+'</label>'+inp+'</div>';
 }
 function rads(opts,name){
-  return '<div class="rr">'+opts.map(function(o){
-    return '<label class="ri"><input type="radio" name="'+name+'" value="'+o+'"> '+o+'</label>';
-  }).join('')+'</div>';
+return '<div class="rr">'+opts.map(function(o){
+return '<label class="ri"><input type="radio" name="'+name+'" value="'+o+'"> '+o+'</label>';
+}).join('')+'</div>';
 }
-
-// ══════════════════════════════════════════════════════════
-// BUILD FORM
-// ══════════════════════════════════════════════════════════
-const SECS=[
-  {id:"s1",t:"I. Información General de la Operación",c:"#0D7377",n:"I"},
-  {id:"s2",t:"II. Identificación del Cliente",c:"#1565C0",n:"II"},
-  {id:"s3",t:"↪ Cónyuge / Conviviente",c:"#6A1B9A",n:"↪"},
-  {id:"s4",t:"III. Información Tributaria",c:"#E65100",n:"III"},
-  {id:"s5",t:"IV. Perfil Económico y Origen de Fondos",c:"#37474F",n:"IV"},
-  {id:"s6",t:"V. Beneficiario Final",c:"#558B2F",n:"V"},
-  {id:"s7",t:"VI. Persona Jurídica",c:"#4527A0",n:"VI"},
-  {id:"s8",t:"VII. Consultas en Bases Públicas",c:"#00695C",n:"VII"},
-  {id:"s9",t:"VIII. Persona Expuesta Políticamente (PEP)",c:"#B71C1C",n:"VIII"},
-  {id:"s10",t:"XI. Matriz de Evaluación de Riesgo",c:"#BF360C",n:"XI"},
-  {id:"s11",t:"XII. Decisión Institucional",c:"#1B3A6B",n:"XII"},
-  {id:"s12",t:"X. Uso Interno",c:"#1B3A6B",n:"X"},
+const _v07=[
+{id:"s1",t:"I. Información General de la Operación",c:"#0D7377",n:"I"},
+{id:"s2",t:"II. Identificación del Cliente",c:"#1565C0",n:"II"},
+{id:"s3",t:"↪ Cónyuge / Conviviente",c:"#6A1B9A",n:"↪"},
+{id:"s4",t:"III. Información Tributaria",c:"#E65100",n:"III"},
+{id:"s5",t:"IV. Perfil Económico y Origen de Fondos",c:"#37474F",n:"IV"},
+{id:"s6",t:"V. Beneficiario Final",c:"#558B2F",n:"V"},
+{id:"s7",t:"VI. Persona Jurídica",c:"#4527A0",n:"VI"},
+{id:"s8",t:"VII. Consultas en Bases Públicas",c:"#00695C",n:"VII"},
+{id:"s9",t:"VIII. Persona Expuesta Políticamente (PEP)",c:"#B71C1C",n:"VIII"},
+{id:"s10",t:"XI. Matriz de Evaluación de Riesgo",c:"#BF360C",n:"XI"},
+{id:"s11",t:"XII. Decisión Institucional",c:"#1B3A6B",n:"XII"},
+{id:"s12",t:"X. Uso Interno",c:"#1B3A6B",n:"X"},
 ];
-
-function buildForm(){
-  const nom=CFG.nombre||"Formulario Debida Diligencia";
-  const anio=CFG.anio||"";
-  document.title="Debida Diligencia"+(CFG.nombre?" — "+CFG.nombre:"");
-  el("tt").textContent="Debida Diligencia"+(CFG.nombre?" — "+CFG.nombre:"");
-  el("ts").textContent="Prevención de Lavado de Activos"+(anio?" · "+anio:"");
-
-  // Progress
-  el("pb").innerHTML=SECS.map((s,i)=>`<div class="ps${i===0?" active":""}" onclick="scrollSec('${s.id}')">${s.n}. ${s.t.split(". ").slice(1).join(". ").substring(0,18)||s.t.substring(0,18)}</div>`).join("");
-
-  // Matrizadores
-  const us=el("user-select");
-  us.innerHTML='<option value="">— Seleccionar matrizador —</option>';
-  CFG.matrizadores.forEach(m=>{const o=document.createElement("option");o.value=m;o.textContent=m;us.appendChild(o);});
-
-  // Secciones
-  el("fs").innerHTML=SECS.map(s=>`
-    <div class="sc" id="${s.id}">
-      <div class="sh" style="background:${s.c}" onclick="toggleSec('${s.id}')">
-        <div class="sn">${s.n}</div><h2>${s.t}</h2><span class="sv">▼</span>
-      </div>
-      <div class="sb" style="border-color:${s.c}20" id="b_${s.id}"></div>
-    </div>`).join("");
-
-  // S1 — OPERACIÓN
-  el("b_s1").innerHTML=`
-    <div class="g3">
-      ${fld("Número de Matriz",`<input type="text" id="nro" placeholder="2026-001">`,true)}
-      ${fld("Tipo de Interviniente",sel(["Vendedor","Comprador","Donante","Donatario","Acreedor","Deudor","Cedente","Cesionario","Otro"],"tipo_int"),true)}
-      ${fld("Fecha de la Operación",`<input type="date" id="fop">`,true)}
-      ${fld("Cuantía / Monto Total (USD)",`<input type="number" id="cuantia" placeholder="0.00" min="0" step="0.01">`)}
-      ${fld("Avalúo Catastral (USD)",`<input type="number" id="avaluo" placeholder="0.00" min="0" step="0.01">`)}
-      ${fld("Forma de Pago",sel(["Transferencia bancaria","Cheque","Efectivo","Mixto","Compensación"],"forma_pago"),true)}
-      ${fld("Entidad Financiera",`<input type="text" id="entidad">`)}
-      ${fld("N° de Cuenta",`<input type="text" id="nro_cta">`)}
-      ${fld("Tipo de Cuenta",sel(["Cuenta Corriente","Cuenta Ahorros","Cuenta Empresarial"],"tipo_cta"))}
-    </div>
-    <div style="margin-top:13px">
-      <div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:6px">Tipo de Acto o Contrato — Marque todos los que correspondan</div>
-      <div class="ag" id="ag">
-        ${CFG.tipoActos.map(a=>`<label class="ai"><input type="checkbox" value="${a}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${a}</label>`).join("")}
-        <label class="ai" style="grid-column:1/-1">
-          <input type="checkbox" id="chk_otro" value="Otro" onchange="this.closest('label').classList.toggle('sel',this.checked)"> Otro:
-          <input type="text" id="chk_otro_txt" placeholder="Especifique..." style="display:inline-block;width:175px;margin-left:7px;padding:3px 7px;font-size:10px" onclick="event.stopPropagation()">
-        </label>
-      </div>
-    </div>`;
-
-  // S2 — CLIENTE
-  el("b_s2").innerHTML=`
-    <div class="g3">
-      ${fld("Tipo de Identificación",sel(["Cédula","Pasaporte","RUC"],"tipo_id"))}
-      ${fld("Cédula / Pasaporte",`<input type="text" id="cedula" placeholder="1712345678">`,true)}
-      ${fld("RUC (si aplica)",`<input type="text" id="ruc">`)}
-      <div class="fld full"><label>Nombres Completos <span class="req">*</span></label>
-        <input type="text" id="nombres" placeholder="Apellidos y nombres completos"></div>
-      ${fld("Nacionalidad",`<select id="nacion"><option value="">— Seleccionar —</option>${CFG.nacionalidades.map(n=>`<option>${n}</option>`).join("")}</select>`)}
-      ${fld("Estado Civil",`<select id="ecivil" onchange="toggleCony(this.value)"><option value="">— Seleccionar —</option><option>Soltero/a</option><option>Casado/a</option><option>Divorciado/a</option><option>Viudo/a</option><option>Unión libre</option></select>`)}
-      ${fld("Profesión / Ocupación",`<select id="profesion"><option value="">— Seleccionar —</option>${CFG.profesiones.map(p=>`<option>${p}</option>`).join("")}</select>`)}
-      <div class="fld full">${fld("Actividad Económica Principal",`<input type="text" id="actividad">`)}</div>
-      <div class="fld full">${fld("Dirección Domiciliaria",`<input type="text" id="direccion" placeholder="Calle, número, sector...">`)}</div>
-      ${fld("Ciudad / Provincia",`<input type="text" id="ciudad_cli" placeholder="Quito / Pichincha">`)}
-      ${fld("Teléfono",`<input type="tel" id="telefono" placeholder="09...">`)}
-      ${fld("Correo Electrónico",`<input type="email" id="correo">`)}
-      <div class="fld full">${fld("Empresa / Lugar de Trabajo",`<input type="text" id="empresa">`)}</div>
-      ${fld("Tiempo de Actividad (años)",`<input type="number" id="tact" min="0" max="60">`)}
-    </div>`;
-
-  // S3 — CÓNYUGE
-  el("b_s3").innerHTML=`
-    <div id="cny_notice" style="display:none;background:#FEF3C7;border:1px solid #F59E0B;border-radius:7px;padding:8px 12px;margin-bottom:11px;font-size:11px;color:#92400E">
-      ⚠ La sección Cónyuge no aplica para el estado civil seleccionado.
-    </div>
-    <div class="g3" id="cny_flds">
-      ${fld("Cédula / Pasaporte Cónyuge",`<input type="text" id="cced">`)}
-      <div class="fld full">${fld("Nombres Completos Cónyuge",`<input type="text" id="cnom">`)}</div>
-      ${fld("Nacionalidad",`<input type="text" id="cnac">`)}
-      ${fld("Profesión",`<input type="text" id="cprof">`)}
-      ${fld("Actividad Económica",`<input type="text" id="cact">`)}
-      ${fld("Dirección",`<input type="text" id="cdir">`)}
-      ${fld("Teléfono",`<input type="tel" id="ctel">`)}
-      ${fld("Correo",`<input type="email" id="ccorreo">`)}
-      ${fld("Empresa",`<input type="text" id="cemp">`)}
-    </div>`;
-
-  // S4 — TRIBUTARIA
-  el("b_s4").innerHTML=`
-    <div class="g3">
-      <div class="fld"><label>Estado del RUC</label>${rads(["Activo","Suspendido","Cancelado"],"eruc")}</div>
-      <div class="fld"><label>Régimen Tributario</label>${rads(["General","RIMPE-Emprendedor","RIMPE-Negocio Popular"],"regimen")}</div>
-      <div class="fld"><label>Obligado a llevar Contabilidad</label>${rads(["Sí","No"],"oblig")}</div>
-      <div class="fld"><label>Contribuyente Especial</label>${rads(["Sí","No"],"contrib")}</div>
-      ${fld("Fecha de Verificación SRI",`<input type="date" id="fsri">`)}
-      ${fld("Resultado de Verificación",`<input type="text" id="rsri" placeholder="Ej.: RUC activo, al día">`)}
-    </div>`;
-
-  // S5 — PERFIL ECONÓMICO
-  el("b_s5").innerHTML=`
-    <div class="g3">
-      ${fld("Ingreso Mensual Promedio (USD)",`<input type="number" id="ingreso" placeholder="0.00" step="0.01" min="0">`)}
-      ${fld("Patrimonio Aproximado (USD)",`<input type="number" id="patrimonio" placeholder="0.00" step="0.01" min="0">`)}
-      ${fld("Origen de los Fondos",sel(["Ahorros propios","Crédito bancario","Venta de inmueble","Actividad comercial","Herencia","Donación","Otro"],"ofondos"))}
-      <div class="fld full">${fld("Descripción del Origen de Fondos",`<textarea id="odetalle" placeholder="Describa el origen..."></textarea>`)}</div>
-      <div class="fld full"><label>Respaldo Documental Presentado</label>
-        <div class="rr" style="flex-wrap:wrap;gap:7px 16px">
-          ${["Estados de cuenta bancarios","Declaración de impuesto a la renta","Escritura de venta previa","Contrato de crédito","Certificado laboral","Estados financieros","No presenta respaldo"]
-            .map(d=>`<label class="ri"><input type="checkbox" class="rdoc" value="${d}"> ${d}</label>`).join("")}
-        </div>
-      </div>
-    </div>`;
-
-  // S6 — BENEFICIARIO
-  el("b_s6").innerHTML=`
-    <div class="fld" style="margin-bottom:12px"><label>¿Actúa por cuenta propia?</label>
-      <div class="rr">
-        <label class="ri"><input type="radio" name="cpropia" value="Sí" onchange="el('bff').style.display='none'"> Sí</label>
-        <label class="ri"><input type="radio" name="cpropia" value="No" onchange="el('bff').style.display='grid'"> No — identificar beneficiario</label>
-      </div>
-    </div>
-    <div class="g3" id="bff" style="display:none">
-      <div class="fld full">${fld("Nombre del Beneficiario Final",`<input type="text" id="bfnom">`)}</div>
-      ${fld("Cédula / RUC",`<input type="text" id="bfced">`)}
-      ${fld("Nacionalidad",`<input type="text" id="bfnac">`)}
-      ${fld("Teléfono",`<input type="tel" id="bftel">`)}
-      ${fld("Correo",`<input type="email" id="bfcorreo">`)}
-      ${fld("Relación con el compareciente",`<input type="text" id="bfrel">`)}
-      <div class="fld full">${fld("Dirección",`<input type="text" id="bfdir">`)}</div>
-    </div>`;
-
-  // S7 — JURÍDICA
-  el("b_s7").innerHTML=`
-    <div class="g3">
-      ${fld("Razón Social",`<input type="text" id="pjraz">`)}
-      ${fld("RUC",`<input type="text" id="pjruc">`)}
-      ${fld("Representante Legal",`<input type="text" id="pjrep">`)}
-      ${fld("CI del Representante Legal",`<input type="text" id="pjci">`)}
-      <div class="fld"><label>¿Estructura Societaria Compleja?</label>${rads(["Sí","No"],"pjestr")}</div>
-      <div class="fld full">${fld("Beneficiarios Finales Identificados",`<textarea id="pjben"></textarea>`)}</div>
-    </div>`;
-
-  // S8 — BASES
-  el("b_s8").innerHTML=`
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px;margin-bottom:12px">
-      ${BASES.map(b=>`<label class="ai"><input type="checkbox" class="bchk" value="${b}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${b}</label>`).join("")}
-    </div>
-    ${fld("Fecha de Consulta en Bases",`<input type="date" id="fbases" style="max-width:200px">`)}`;
-
-  // S9 — PEP
-  el("b_s9").innerHTML=`
-    <div class="g3">
-      <div class="fld"><label>¿Es Persona Expuesta Políticamente?</label>${rads(["Sí","No"],"espep")}</div>
-      <div class="fld"><label>¿Es familiar o relacionado con PEP?</label>${rads(["Sí","No"],"pepfam")}</div>
-    </div>
-    <div class="g3" id="pepf" style="display:none;margin-top:10px">
-      ${fld("Entidad",`<input type="text" id="pepent">`)}
-      ${fld("Cargo",`<input type="text" id="pepcargo">`)}
-      ${fld("Período",`<input type="text" id="pepperiodo" placeholder="2020 - 2024">`)}
-    </div>`;
-  document.querySelectorAll('input[name="espep"],input[name="pepfam"]').forEach(r=>{
-    r.addEventListener("change",()=>{
-      el("pepf").style.display=(rv("espep")==="Sí"||rv("pepfam")==="Sí")?"grid":"none";
-    });
-  });
-
-  // S10 — RIESGO
-  el("b_s10").innerHTML=`
-    <div style="margin-bottom:12px">
-      <div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:6px">Factores Identificados</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:5px">
-        ${RFACTORES.map(f=>`<label class="ai"><input type="checkbox" class="rfact" value="${f}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${f}</label>`).join("")}
-      </div>
-      <div style="margin-top:9px;max-width:320px">${fld("Otro factor",`<input type="text" id="rotro">`)}</div>
-    </div>
-    <div>
-      <div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:6px">Nivel de Riesgo Asignado</div>
-      <div class="rprow">
-        <div class="rp" data-v="BAJO"     onclick="setR(this)">● BAJO</div>
-        <div class="rp" data-v="MEDIO"    onclick="setR(this)">● MEDIO</div>
-        <div class="rp" data-v="ALTO"     onclick="setR(this)">● ALTO</div>
-        <div class="rp" data-v="MUY ALTO" onclick="setR(this)">● MUY ALTO</div>
-      </div>
-    </div>`;
-
-  // S11 — DECISIÓN
-  el("b_s11").innerHTML=`
-    <div class="g2">
-      <div class="fld"><label>Decisión</label>
-        <div class="rr" style="flex-direction:column;gap:7px;margin-top:3px">
-          <label class="ri"><input type="radio" name="decision" value="Procede la operación"> Procede la operación</label>
-          <label class="ri"><input type="radio" name="decision" value="Se eleva a análisis para posible ROS"> Se eleva a análisis para posible ROS</label>
-          <label class="ri"><input type="radio" name="decision" value="Rechazada"> Rechazada</label>
-        </div>
-      </div>
-      ${fld("Observaciones",`<textarea id="obs" placeholder="Observaciones adicionales..."></textarea>`)}
-    </div>`;
-
-  // S12 — USO INTERNO
-  el("b_s12").innerHTML=`
-    <div class="g3">
-      <div class="fld full">${fld("Funcionario que realiza la Debida Diligencia",`<input type="text" id="func">`)}</div>
-      ${fld("Fecha de la Diligencia",`<input type="date" id="fdilig">`)}
-      <div class="fld"><label>Declaración Aceptada por el Cliente</label>${rads(["Sí","No"],"dacept")}</div>
-      ${fld("Nombre del Compareciente (para firma)",`<input type="text" id="ncomp">`)}
-      ${fld("Fecha de Firma",`<input type="date" id="ffirma">`)}
-    </div>`;
-
-  el("s1").classList.add("open");
-  el("ba").style.display="flex";
+function _f06(){
+const nom=_v13.nombre||"Formulario Debida Diligencia";
+const anio=_v13.anio||"";
+document.title="Debida Diligencia"+(_v13.nombre?" — "+_v13.nombre:"");
+el("tt").textContent="Debida Diligencia"+(_v13.nombre?" — "+_v13.nombre:"");
+el("ts").textContent="Prevención de Lavado de Activos"+(anio?" · "+anio:"");
+el("pb").innerHTML=_v07.map((s,i)=>`<div class="ps${i===0?" active":""}" onclick="_f20('${s.id}')">${s.n}. ${s.t.split(". ").slice(1).join(". ").substring(0,18)||s.t.substring(0,18)}</div>`).join("");
+const us=el("user-select");
+us.innerHTML='<option value="">— Seleccionar matrizador —</option>';
+_v13.matrizadores.forEach(m=>{const o=document.createElement("option");o.value=m;o.textContent=m;us.appendChild(o);});
+el("fs").innerHTML=_v07.map(s=>`
+<div class="sc" id="${s.id}">
+<div class="sh" style="background:${s.c}" onclick="_f19('${s.id}')">
+<div class="sn">${s.n}</div><h2>${s.t}</h2><span class="sv">▼</span>
+</div>
+<div class="sb" style="border-color:${s.c}20" id="b_${s.id}"></div>
+</div>`).join("");
+el("b_s1").innerHTML=`
+<div class="g3">
+${fld("Número de Matriz",`<input type="text" id="nro" placeholder="2026-001">`,true)}
+${fld("Tipo de Interviniente",sel(["Vendedor","Comprador","Donante","Donatario","Acreedor","Deudor","Cedente","Cesionario","Otro"],"tipo_int"),true)}
+${fld("Fecha de la Operación",`<input type="date" id="fop">`,true)}
+${fld("Cuantía / Monto Total (USD)",`<input type="number" id="cuantia" placeholder="0.00" min="0" step="0.01">`)}
+${fld("Avalúo Catastral (USD)",`<input type="number" id="avaluo" placeholder="0.00" min="0" step="0.01">`)}
+${fld("Forma de Pago",sel(["Transferencia bancaria","Cheque","Efectivo","Mixto","Compensación"],"forma_pago"),true)}
+${fld("Entidad Financiera",`<input type="text" id="entidad">`)}
+${fld("N° de Cuenta",`<input type="text" id="nro_cta">`)}
+${fld("Tipo de Cuenta",sel(["Cuenta Corriente","Cuenta Ahorros","Cuenta Empresarial"],"tipo_cta"))}
+</div>
+<div style="margin-top:13px">
+<div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:6px">Tipo de Acto o Contrato — Marque todos los que correspondan</div>
+<div class="ag" id="ag">
+${_v13.tipoActos.map(a=>`<label class="ai"><input type="checkbox" value="${a}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${a}</label>`).join("")}
+<label class="ai" style="grid-column:1/-1">
+<input type="checkbox" id="chk_otro" value="Otro" onchange="this.closest('label').classList.toggle('sel',this.checked)"> Otro:
+<input type="text" id="chk_otro_txt" placeholder="Especifique..." style="display:inline-block;width:175px;margin-left:7px;padding:3px 7px;font-size:10px" onclick="event.stopPropagation()">
+</label>
+</div>
+</div>`;
+el("b_s2").innerHTML=`
+<div class="g3">
+${fld("Tipo de Identificación",sel(["Cédula","Pasaporte","RUC"],"tipo_id"))}
+${fld("Cédula / Pasaporte",`<input type="text" id="cedula" placeholder="1712345678">`,true)}
+${fld("RUC (si aplica)",`<input type="text" id="ruc">`)}
+<div class="fld full"><label>Nombres Completos <span class="req">*</span></label>
+<input type="text" id="nombres" placeholder="Apellidos y nombres completos"></div>
+${fld("Nacionalidad",`<select id="nacion"><option value="">— Seleccionar —</option>${_v13.nacionalidades.map(n=>`<option>${n}</option>`).join("")}</select>`)}
+${fld("Estado Civil",`<select id="ecivil" onchange="_f23(this.value)"><option value="">— Seleccionar —</option><option>Soltero/a</option><option>Casado/a</option><option>Divorciado/a</option><option>Viudo/a</option><option>Unión libre</option></select>`)}
+${fld("Profesión / Ocupación",`<select id="profesion"><option value="">— Seleccionar —</option>${_v13.profesiones.map(p=>`<option>${p}</option>`).join("")}</select>`)}
+<div class="fld full">${fld("Actividad Económica Principal",`<input type="text" id="actividad">`)}</div>
+<div class="fld full">${fld("Dirección Domiciliaria",`<input type="text" id="direccion" placeholder="Calle, número, sector...">`)}</div>
+${fld("Ciudad / Provincia",`<input type="text" id="ciudad_cli" placeholder="Quito / Pichincha">`)}
+${fld("Teléfono",`<input type="tel" id="telefono" placeholder="09...">`)}
+${fld("Correo Electrónico",`<input type="email" id="correo">`)}
+<div class="fld full">${fld("Empresa / Lugar de Trabajo",`<input type="text" id="empresa">`)}</div>
+${fld("Tiempo de Actividad (años)",`<input type="number" id="tact" min="0" max="60">`)}
+</div>`;
+el("b_s3").innerHTML=`
+<div id="cny_notice" style="display:none;background:#FEF3C7;border:1px solid #F59E0B;border-radius:7px;padding:8px 12px;margin-bottom:11px;font-size:11px;color:#92400E">
+⚠ La sección Cónyuge no aplica para el estado civil seleccionado.
+</div>
+<div class="g3" id="cny_flds">
+${fld("Cédula / Pasaporte Cónyuge",`<input type="text" id="cced">`)}
+<div class="fld full">${fld("Nombres Completos Cónyuge",`<input type="text" id="cnom">`)}</div>
+${fld("Nacionalidad",`<input type="text" id="cnac">`)}
+${fld("Profesión",`<input type="text" id="cprof">`)}
+${fld("Actividad Económica",`<input type="text" id="cact">`)}
+${fld("Dirección",`<input type="text" id="cdir">`)}
+${fld("Teléfono",`<input type="tel" id="ctel">`)}
+${fld("Correo",`<input type="email" id="ccorreo">`)}
+${fld("Empresa",`<input type="text" id="cemp">`)}
+</div>`;
+el("b_s4").innerHTML=`
+<div class="g3">
+<div class="fld"><label>Estado del RUC</label>${rads(["Activo","Suspendido","Cancelado"],"eruc")}</div>
+<div class="fld"><label>Régimen Tributario</label>${rads(["General","RIMPE-Emprendedor","RIMPE-Negocio Popular"],"regimen")}</div>
+<div class="fld"><label>Obligado a llevar Contabilidad</label>${rads(["Sí","No"],"oblig")}</div>
+<div class="fld"><label>Contribuyente Especial</label>${rads(["Sí","No"],"contrib")}</div>
+${fld("Fecha de Verificación SRI",`<input type="date" id="fsri">`)}
+${fld("Resultado de Verificación",`<input type="text" id="rsri" placeholder="Ej.: RUC activo, al día">`)}
+</div>`;
+el("b_s5").innerHTML=`
+<div class="g3">
+${fld("Ingreso Mensual Promedio (USD)",`<input type="number" id="ingreso" placeholder="0.00" step="0.01" min="0">`)}
+${fld("Patrimonio Aproximado (USD)",`<input type="number" id="patrimonio" placeholder="0.00" step="0.01" min="0">`)}
+${fld("Origen de los Fondos",sel(["Ahorros propios","Crédito bancario","Venta de inmueble","Actividad comercial","Herencia","Donación","Otro"],"ofondos"))}
+<div class="fld full">${fld("Descripción del Origen de Fondos",`<textarea id="odetalle" placeholder="Describa el origen..."></textarea>`)}</div>
+<div class="fld full"><label>Respaldo Documental Presentado</label>
+<div class="rr" style="flex-wrap:wrap;gap:7px 16px">
+${["Estados de cuenta bancarios","Declaración de impuesto a la renta","Escritura de venta previa","Contrato de crédito","Certificado laboral","Estados financieros","No presenta respaldo"]
+.map(d=>`<label class="ri"><input type="checkbox" class="rdoc" value="${d}"> ${d}</label>`).join("")}
+</div>
+</div>
+</div>`;
+el("b_s6").innerHTML=`
+<div class="fld" style="margin-bottom:12px"><label>¿Actúa por cuenta propia?</label>
+<div class="rr">
+<label class="ri"><input type="radio" name="cpropia" value="Sí" onchange="el('bff').style.display='none'"> Sí</label>
+<label class="ri"><input type="radio" name="cpropia" value="No" onchange="el('bff').style.display='grid'"> No — identificar beneficiario</label>
+</div>
+</div>
+<div class="g3" id="bff" style="display:none">
+<div class="fld full">${fld("Nombre del Beneficiario Final",`<input type="text" id="bfnom">`)}</div>
+${fld("Cédula / RUC",`<input type="text" id="bfced">`)}
+${fld("Nacionalidad",`<input type="text" id="bfnac">`)}
+${fld("Teléfono",`<input type="tel" id="bftel">`)}
+${fld("Correo",`<input type="email" id="bfcorreo">`)}
+${fld("Relación con el compareciente",`<input type="text" id="bfrel">`)}
+<div class="fld full">${fld("Dirección",`<input type="text" id="bfdir">`)}</div>
+</div>`;
+el("b_s7").innerHTML=`
+<div class="g3">
+${fld("Razón Social",`<input type="text" id="pjraz">`)}
+${fld("RUC",`<input type="text" id="pjruc">`)}
+${fld("Representante Legal",`<input type="text" id="pjrep">`)}
+${fld("CI del Representante Legal",`<input type="text" id="pjci">`)}
+<div class="fld"><label>¿Estructura Societaria Compleja?</label>${rads(["Sí","No"],"pjestr")}</div>
+<div class="fld full">${fld("Beneficiarios Finales Identificados",`<textarea id="pjben"></textarea>`)}</div>
+</div>`;
+el("b_s8").innerHTML=`
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px;margin-bottom:12px">
+${_v05.map(b=>`<label class="ai"><input type="checkbox" class="bchk" value="${b}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${b}</label>`).join("")}
+</div>
+${fld("Fecha de Consulta en Bases",`<input type="date" id="fbases" style="max-width:200px">`)}`;
+el("b_s9").innerHTML=`
+<div class="g3">
+<div class="fld"><label>¿Es Persona Expuesta Políticamente?</label>${rads(["Sí","No"],"espep")}</div>
+<div class="fld"><label>¿Es familiar o relacionado con PEP?</label>${rads(["Sí","No"],"pepfam")}</div>
+</div>
+<div class="g3" id="pepf" style="display:none;margin-top:10px">
+${fld("Entidad",`<input type="text" id="pepent">`)}
+${fld("Cargo",`<input type="text" id="pepcargo">`)}
+${fld("Período",`<input type="text" id="pepperiodo" placeholder="2020 - 2024">`)}
+</div>`;
+document.querySelectorAll('input[name="espep"],input[name="pepfam"]').forEach(r=>{
+r.addEventListener("change",()=>{
+el("pepf").style.display=(rv("espep")==="Sí"||rv("pepfam")==="Sí")?"grid":"none";
+});
+});
+el("b_s10").innerHTML=`
+<div style="margin-bottom:12px">
+<div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:6px">Factores Identificados</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:5px">
+${_v06.map(f=>`<label class="ai"><input type="checkbox" class="rfact" value="${f}" onchange="this.closest('label').classList.toggle('sel',this.checked)"> ${f}</label>`).join("")}
+</div>
+<div style="margin-top:9px;max-width:320px">${fld("Otro factor",`<input type="text" id="rotro">`)}</div>
+</div>
+<div>
+<div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:6px">Nivel de Riesgo Asignado</div>
+<div class="rprow">
+<div class="rp" data-v="BAJO"     onclick="_f21(this)">● BAJO</div>
+<div class="rp" data-v="MEDIO"    onclick="_f21(this)">● MEDIO</div>
+<div class="rp" data-v="ALTO"     onclick="_f21(this)">● ALTO</div>
+<div class="rp" data-v="MUY ALTO" onclick="_f21(this)">● MUY ALTO</div>
+</div>
+</div>`;
+el("b_s11").innerHTML=`
+<div class="g2">
+<div class="fld"><label>Decisión</label>
+<div class="rr" style="flex-direction:column;gap:7px;margin-top:3px">
+<label class="ri"><input type="radio" name="decision" value="Procede la operación"> Procede la operación</label>
+<label class="ri"><input type="radio" name="decision" value="Se eleva a análisis para posible ROS"> Se eleva a análisis para posible ROS</label>
+<label class="ri"><input type="radio" name="decision" value="Rechazada"> Rechazada</label>
+</div>
+</div>
+${fld("Observaciones",`<textarea id="obs" placeholder="Observaciones adicionales..."></textarea>`)}
+</div>`;
+el("b_s12").innerHTML=`
+<div class="g3">
+<div class="fld full">${fld("Funcionario que realiza la Debida Diligencia",`<input type="text" id="func">`)}</div>
+${fld("Fecha de la Diligencia",`<input type="date" id="fdilig">`)}
+<div class="fld"><label>Declaración Aceptada por el Cliente</label>${rads(["Sí","No"],"dacept")}</div>
+${fld("Nombre del Compareciente (para firma)",`<input type="text" id="ncomp">`)}
+${fld("Fecha de Firma",`<input type="date" id="ffirma">`)}
+</div>`;
+el("s1").classList.add("open");
+el("ba").style.display="flex";
 }
-
-// ══════════════════════════════════════════════════════════
-// UI
-// ══════════════════════════════════════════════════════════
-function toggleSec(id){ el(id).classList.toggle("open"); }
-function scrollSec(id){ el(id).classList.add("open"); el(id).scrollIntoView({behavior:"smooth",block:"start"}); }
-function setR(e){ document.querySelectorAll(".rp").forEach(p=>p.classList.remove("on")); e.classList.add("on"); nivelRiesgo=e.dataset.v; }
-function setUser(u){ currentUser=u; el("bsv").disabled=!u||!apiOk; if(u&&el("func"))el("func").value=u; }
-
-function toggleCony(val){
-  const sinCony=["Soltero/a","Divorciado/a","Viudo/a"];
-  const blk=sinCony.includes(val);
-  el("cny_flds").style.opacity=blk?"0.35":"1";
-  el("cny_flds").style.pointerEvents=blk?"none":"";
-  el("cny_notice").style.display=blk?"block":"none";
-  if(blk) ["cced","cnom","cnac","cprof","cact","cdir","ctel","ccorreo","cemp"].forEach(id=>{const e=el(id);if(e)e.value="";});
+function _f19(id){ el(id).classList.toggle("open"); }
+function _f20(id){ el(id).classList.add("open"); el(id).scrollIntoView({behavior:"smooth",block:"start"}); }
+function _f21(e){ document.querySelectorAll(".rp").forEach(p=>p.classList.remove("on")); e.classList.add("on"); _v02=e.dataset.v; }
+function _f22(u){ _v01=u; el("bsv").disabled=!u||!_v03; if(u&&el("func"))el("func").value=u; }
+function _f23(val){
+const sinCony=["Soltero/a","Divorciado/a","Viudo/a"];
+const blk=sinCony.includes(val);
+el("cny_flds").style.opacity=blk?"0.35":"1";
+el("cny_flds").style.pointerEvents=blk?"none":"";
+el("cny_notice").style.display=blk?"block":"none";
+if(blk) ["cced","cnom","cnac","cprof","cact","cdir","ctel","ccorreo","cemp"].forEach(id=>{const e=el(id);if(e)e.value="";});
 }
-
-// ══════════════════════════════════════════════════════════
-// RECOLECTAR DATOS
-// ══════════════════════════════════════════════════════════
-function recolectar(){
-  const actos=CFG.tipoActos.map(a=>{const cb=document.querySelector(`#ag input[value="${a}"]`);return cb&&cb.checked?"Sí":"No";});
-  const actoOtro=el("chk_otro")&&el("chk_otro").checked?v("ao2t"):"";
-  const bases=BASES.map(b=>{const cb=document.querySelector(`.bchk[value="${b}"]`);return cb&&cb.checked?"Sí":"No";});
-  const factores=[...document.querySelectorAll(".rfact:checked")].map(e=>e.value).join(", ");
-  const respDocs=chks("rdoc");
-  return[
-    "",                              // 0  ID — asignado por Script
-    new Date().toISOString(),       // 1  Timestamp servidor
-    currentUser,                    // 2  Matrizador
-    CFG.nombre||"",                 // 3  Notaría (del CFG — 1 notaría = 1 sheet)
-    CFG.anio||"",                   // 4  Año
-    "PENDIENTE",                    // 5  Estado
-    v("nro"),                       // 6  Numero_Matriz
-    v("tipo_int"),                  // 7  Tipo_Interviniente
-    v("fop"),                       // 8  Fecha_Operacion
-    v("cuantia"),                   // 9  Cuantia_USD
-    v("avaluo"),                    // 10 Avaluo_Catastral_USD
-    v("forma_pago"),                // 11 Forma_Pago
-    v("entidad"),                   // 12 Entidad_Financiera
-    v("nro_cta"),                   // 13 Nro_Cuenta
-    v("tipo_cta"),                  // 14 Tipo_Cuenta
-    ...actos,                       // 15..28 Actos (14)
-    actoOtro,                       // 29 Acto_Otro
-    v("tipo_id"),                   // 30
-    v("cedula"),                    // 31
-    v("nombres"),                   // 32
-    v("ruc"),                       // 33
-    v("nacion"),                    // 34
-    v("ecivil"),                    // 35
-    v("profesion"),                 // 36
-    v("actividad"),                 // 37
-    v("direccion"),                 // 38
-    v("ciudad_cli"),                // 39
-    v("telefono"),                  // 40
-    v("correo"),                    // 41
-    v("empresa"),                   // 42
-    v("tact"),                      // 43
-    v("cced"),v("cnom"),v("cnac"),v("cprof"),v("cact"),v("cdir"),v("ctel"),v("ccorreo"),v("cemp"), // 44-52
-    rv("eruc"),rv("regimen"),rv("oblig"),rv("contrib"),v("fsri"),v("rsri"), // 53-58
-    v("ingreso"),v("patrimonio"),v("ofondos"),v("odetalle"),respDocs, // 59-63
-    rv("cpropia"),v("bfnom"),v("bfced"),v("bfnac"),v("bfdir"),v("bftel"),v("bfcorreo"),v("bfrel"), // 64-71
-    v("pjraz"),v("pjruc"),v("pjrep"),v("pjci"),rv("pjestr"),v("pjben"), // 72-77
-    ...bases,                       // 78-82
-    v("fbases"),                    // 83
-    rv("espep"),rv("pepfam"),v("pepent"),v("pepcargo"),v("pepperiodo"), // 84-88
-    rv("dacept"),v("ncomp"),v("ffirma"), // 89-91
-    v("func"),v("fdilig"),          // 92-93
-    factores,v("rotro"),            // 94-95
-    nivelRiesgo,                    // 96
-    rv("decision"),v("obs"),        // 97-98
-    new Date().toLocaleDateString("es-EC") // 99
-  ];
+function _f10(){
+const actos=_v13.tipoActos.map(a=>{const cb=document.querySelector(`#ag input[value="${a}"]`);return cb&&cb.checked?"Sí":"No";});
+const actoOtro=el("chk_otro")&&el("chk_otro").checked?v("ao2t"):"";
+const bases=_v05.map(b=>{const cb=document.querySelector(`.bchk[value="${b}"]`);return cb&&cb.checked?"Sí":"No";});
+const factores=[...document.querySelectorAll(".rfact:checked")].map(e=>e.value).join(", ");
+const respDocs=chks("rdoc");
+return[
+"",
+new Date().toISOString(),
+_v01,
+_v13.nombre||"",
+_v13.anio||"",
+"PENDIENTE",
+v("nro"),
+v("tipo_int"),
+v("fop"),
+v("cuantia"),
+v("avaluo"),
+v("forma_pago"),
+v("entidad"),
+v("nro_cta"),
+v("tipo_cta"),
+...actos,
+actoOtro,
+v("tipo_id"),
+v("cedula"),
+v("nombres"),
+v("ruc"),
+v("nacion"),
+v("ecivil"),
+v("profesion"),
+v("actividad"),
+v("direccion"),
+v("ciudad_cli"),
+v("telefono"),
+v("correo"),
+v("empresa"),
+v("tact"),
+v("cced"),v("cnom"),v("cnac"),v("cprof"),v("cact"),v("cdir"),v("ctel"),v("ccorreo"),v("cemp"),
+rv("eruc"),rv("regimen"),rv("oblig"),rv("contrib"),v("fsri"),v("rsri"),
+v("ingreso"),v("patrimonio"),v("ofondos"),v("odetalle"),respDocs,
+rv("cpropia"),v("bfnom"),v("bfced"),v("bfnac"),v("bfdir"),v("bftel"),v("bfcorreo"),v("bfrel"),
+v("pjraz"),v("pjruc"),v("pjrep"),v("pjci"),rv("pjestr"),v("pjben"),
+...bases,
+v("fbases"),
+rv("espep"),rv("pepfam"),v("pepent"),v("pepcargo"),v("pepperiodo"),
+rv("dacept"),v("ncomp"),v("ffirma"),
+v("func"),v("fdilig"),
+factores,v("rotro"),
+_v02,
+rv("decision"),v("obs"),
+new Date().toLocaleDateString("es-EC")
+];
 }
-
-// ══════════════════════════════════════════════════════════
-// VALIDAR
-// ══════════════════════════════════════════════════════════
-function validar(){
-  const reqs=[
-    {id:"nro",lb:"Número de Matriz"},
-    {id:"tipo_int",lb:"Tipo de Interviniente"},
-    {id:"fop",lb:"Fecha de la Operación"},
-    {id:"forma_pago",lb:"Forma de Pago"},
-    {id:"cedula",lb:"Cédula / Pasaporte"},
-    {id:"nombres",lb:"Nombres Completos"},
-  ];
-  const errs=[];
-  if(!currentUser) errs.push("Seleccionar Matrizador en la barra superior");
-  if(!CFG.scriptUrl) errs.push("Configurar la URL del Apps Script (botón ⚙)");
-  reqs.forEach(r=>{
-    const e=el(r.id);
-    if(!e||!e.value.trim()){errs.push(r.lb);if(e)e.classList.add("err-f");}
-    else if(e) e.classList.remove("err-f");
-  });
-  return errs;
+function _f09(){
+const reqs=[
+{id:"nro",lb:"Número de Matriz"},
+{id:"tipo_int",lb:"Tipo de Interviniente"},
+{id:"fop",lb:"Fecha de la Operación"},
+{id:"forma_pago",lb:"Forma de Pago"},
+{id:"cedula",lb:"Cédula / Pasaporte"},
+{id:"nombres",lb:"Nombres Completos"},
+];
+const errs=[];
+if(!_v01) errs.push("Seleccionar Matrizador en la barra superior");
+if(!_v13.scriptUrl) errs.push("Configurar la URL del Apps Script (botón ⚙)");
+reqs.forEach(r=>{
+const e=el(r.id);
+if(!e||!e.value.trim()){errs.push(r.lb);if(e)e.classList.add("err-f");}
+else if(e) e.classList.remove("err-f");
+});
+return errs;
 }
-
-// ══════════════════════════════════════════════════════════
-// GUARDAR — LockService + 3 reintentos para 10 simultáneos
-// ══════════════════════════════════════════════════════════
-async function guardar(){
-  const errs=validar();
-  if(errs.length){ modal("⚠️","Campos requeridos incompletos","Por favor complete: "+errs.join(" · "),false); return; }
-  el("bsv").disabled=true; el("bsv").textContent="⏳ Guardando...";
-  el("sp").textContent="⏳ Enviando"; el("sp").className="saving";
-  const datos=recolectar();
-  let intentos=0;
-  async function intentar(){
-    intentos++;
-    try{
-      await fetch(CFG.scriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({values:[datos]})});
-      // Guardar en historial local para reimprimir
-      const reg={id:Date.now(),fecha:new Date().toLocaleString("es-EC"),mat:currentUser,nro:datos[6],nombre:datos[32],datos};
-      historial.unshift(reg);
-      if(historial.length>50) historial=historial.slice(0,50);
-      localStorage.setItem("dd_hist",JSON.stringify(historial));
-      el("sp").textContent="✓ Conectado"; el("sp").className="ok";
-      el("bsv").textContent="💾 Guardar"; el("bsv").disabled=false;
-      modal("✅","Guardado exitosamente",
-        `Matrizador: ${currentUser}\nN° Matriz: ${datos[6]||"—"}\nCliente: ${datos[32]||"—"}\n\n✔ Registro enviado a Google Sheets.\nUse 'Historial' para reimprimir.`,true);
-    }catch(err){
-      if(intentos<3){
-        el("bsv").textContent=`⏳ Reintentando ${intentos}/3...`;
-        await new Promise(r=>setTimeout(r,intentos*2000));
-        return intentar();
-      }
-      el("bsv").disabled=false; el("bsv").textContent="💾 Guardar";
-      el("sp").textContent="✗ Error — clic ⚙"; el("sp").className="err";
-      modal("❌","Error al guardar","No se pudo conectar con Google Sheets después de 3 intentos.\n\nVerifique:\n1. Conexión a internet\n2. URL del Script (botón ⚙)\n\n"+err.message,false);
-    }
-  }
-  await intentar();
+async function _f08(){
+const errs=_f09();
+if(errs.length){ _f17("⚠️","Campos requeridos incompletos","Por favor complete: "+errs.join(" · "),false); return; }
+el("bsv").disabled=true; el("bsv").textContent="⏳ Guardando...";
+el("sp").textContent="⏳ Enviando"; el("sp").className="saving";
+const datos=_f10();
+let _v14=0;
+async function _v15(){
+_v14++;
+try{
+await fetch(_v13.scriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({values:[datos]})});
+const reg={id:Date.now(),fecha:new Date().toLocaleString("es-EC"),mat:_v01,nro:datos[6],nombre:datos[32],datos};
+_v04.unshift(reg);
+if(_v04.length>50) _v04=_v04.slice(0,50);
+localStorage.setItem("dd_hist",JSON.stringify(_v04));
+el("sp").textContent="✓ Conectado"; el("sp").className="ok";
+el("bsv").textContent="💾 Guardar"; el("bsv").disabled=false;
+_f17("✅","Guardado exitosamente",
+`Matrizador: ${_v01}\nN° Matriz: ${datos[6]||"—"}\nCliente: ${datos[32]||"—"}\n\n✔ Registro enviado a Google Sheets.\nUse 'Historial' para _f16.`,true);
+}catch(err){
+if(_v14<3){
+el("bsv").textContent=`⏳ Reintentando ${_v14}/3...`;
+await new Promise(r=>setTimeout(r,_v14*2000));
+return _v15();
 }
-
-// ══════════════════════════════════════════════════════════
-// HISTORIAL / REIMPRIMIR
-// ══════════════════════════════════════════════════════════
-function abrirHistorial(){
-  try{ historial=JSON.parse(localStorage.getItem("dd_hist")||"[]"); }catch(e){}
-  el("hl").innerHTML=historial.length
-    ? historial.map((r,i)=>`<div class="hi" onclick="reimprimir(${i})">
-        <div style="font-size:12px;font-weight:700;color:#1B3A6B">${r.nombre||"Sin nombre"} &nbsp;·&nbsp; N° ${r.nro||"—"}</div>
-        <div class="hm">📅 ${r.fecha} &nbsp;|&nbsp; 👤 ${r.mat}</div>
-      </div>`).join("")
-    : '<p style="color:#888;font-size:12px;text-align:center;padding:20px">No hay registros guardados en este navegador.</p>';
-  el("hp").classList.add("show");
+el("bsv").disabled=false; el("bsv").textContent="💾 Guardar";
+el("sp").textContent="✗ Error — clic ⚙"; el("sp").className="err";
+_f17("❌","Error al _f08","No se pudo conectar con Google Sheets después de 3 _v14.\n\nVerifique:\n1. Conexión a internet\n2. URL del Script (botón ⚙)\n\n"+err.message,false);
 }
-function cerrarHistorial(){ el("hp").classList.remove("show"); }
-function reimprimir(i){
-  const reg=historial[i]; if(!reg) return;
-  cerrarHistorial();
-  imprimirDesdeData(reg.datos, reg.mat);
 }
-
-// ══════════════════════════════════════════════════════════
-// IMPRESIÓN A4 — dinámica, usa CFG.nombre
-// ══════════════════════════════════════════════════════════
-function imprimirFormulario(){ imprimirDesdeData(recolectar(), currentUser); }
-
-function imprimirDesdeData(d, resp){
-  const g=i=>d[i]||"";
-  const nom=d[3]||CFG.nombre||"Institución";
-  const anio=d[4]||CFG.anio||new Date().getFullYear();
-  const actos=CFG.tipoActos.map((a,i)=>({lb:a,on:d[15+i]==="Sí"}));
-  const bases=BASES.map((b,i)=>({lb:b,on:d[78+i]==="Sí"}));
-  const nr=d[96]||"";
-  const rs={BAJO:{bg:"#D1FAE5",c:"#2E7D32"},MEDIO:{bg:"#FEF3C7",c:"#B45309"},ALTO:{bg:"#FFEDD5",c:"#E65100"},"MUY ALTO":{bg:"#FEE2E2",c:"#B71C1C"}}[nr]||{bg:"#F3F4F6",c:"#555"};
-  const hoy=new Date().toLocaleDateString("es-EC",{day:"2-digit",month:"2-digit",year:"numeric"});
-  const fv=(lb,val)=>`<div class="pf"><div class="pl">${lb}</div><div class="pv${!val?" e":""}">${val||"—"}</div></div>`;
-  const sh=(n,t,c)=>`<div class="psh" style="background:${c}"><div class="n">${n}</div>${t}</div>`;
-
-  el("pd").innerHTML=`<div class="pw">
-  <div class="ph">
-    <div class="ph-l"><h1>FORMULARIO DE DEBIDA DILIGENCIA — ${nom.toUpperCase()}</h1>
-      <p>Prevención de Lavado de Activos · ${anio}</p></div>
-    <div class="ph-r">N° Registro: <strong>${g(0)||"—"}</strong><br>N° Matriz: <strong>${g(6)||"—"}</strong><br>Generado: ${hoy}</div>
-  </div>
-  <div class="pm">
-    <div class="pmi"><div class="lb">Matrizador/a</div><div class="vl">${resp||"—"}</div></div>
-    <div class="pmi"><div class="lb">Fecha Ingreso</div><div class="vl">${new Date().toLocaleDateString("es-EC")}</div></div>
-    <div class="pmi"><div class="lb">N° Matriz</div><div class="vl">${g(6)||"—"}</div></div>
-    <div class="pmi"><div class="lb">Estado</div><div class="vl">${g(5)||"PENDIENTE"}</div></div>
-  </div>
-
-  <div class="ps2">${sh("I","INFORMACIÓN GENERAL DE LA OPERACIÓN","#0D7377")}
-  <div class="psb">
-    <div class="pg pg3" style="margin-bottom:5px">
-      ${fv("N° Matriz",g(6))}${fv("Tipo Interviniente",g(7))}${fv("Fecha Operación",g(8))}
-      ${fv("Cuantía USD",g(9))}${fv("Avalúo Catastral USD",g(10))}${fv("Forma de Pago",g(11))}
-      ${fv("Entidad Financiera",g(12))}${fv("N° Cuenta",g(13))}${fv("Tipo Cuenta",g(14))}
-    </div>
-    <div class="pl" style="margin-bottom:3px">Tipo de Acto o Contrato</div>
-    <div class="pac">
-      ${actos.map(a=>`<div class="pa"><div class="pb2${a.on?" on":""}">${a.on?"✓":""}</div><span>${a.lb}</span></div>`).join("")}
-      ${g(29)?`<div class="pa" style="grid-column:1/-1"><div class="pb2 on">✓</div><span>Otro: ${g(29)}</span></div>`:""}
-    </div>
-  </div></div>
-
-  <div class="ps2">${sh("II","IDENTIFICACIÓN DEL CLIENTE","#1565C0")}
-  <div class="psb">
-    <div class="pg pg3">
-      ${fv("Tipo ID",g(30))}${fv("Cédula / Pasaporte",g(31))}${fv("RUC",g(33))}
-      <div class="pf" style="grid-column:1/-1">${fv("Nombres Completos",g(32))}</div>
-      ${fv("Nacionalidad",g(34))}${fv("Estado Civil",g(35))}${fv("Profesión",g(36))}
-      <div class="pf" style="grid-column:1/-1">${fv("Actividad Económica",g(37))}</div>
-      <div class="pf" style="grid-column:1/-1">${fv("Dirección",g(38))}</div>
-      ${fv("Ciudad / Provincia",g(39))}${fv("Teléfono",g(40))}${fv("Correo",g(41))}
-      <div class="pf" style="grid-column:1/-1">${fv("Empresa",g(42))}</div>
-      ${fv("Tiempo Actividad (años)",g(43))}
-    </div>
-    ${g(44)||g(45)?`<div style="margin-top:6px;border-top:1px dashed #ccc;padding-top:5px">
-      <div class="pl" style="color:#6A1B9A;margin-bottom:3px">CÓNYUGE / CONVIVIENTE</div>
-      <div class="pg pg3">
-        ${fv("Cédula Cónyuge",g(44))}<div class="pf" style="grid-column:2/4">${fv("Nombres Cónyuge",g(45))}</div>
-        ${fv("Teléfono",g(50))}${fv("Correo",g(51))}${fv("Empresa",g(52))}
-      </div></div>`:""}
-  </div></div>
-
-  <div class="ps2">${sh("III","INFORMACIÓN TRIBUTARIA","#E65100")}
-  <div class="psb pg pg3">
-    ${fv("Estado RUC",g(53))}${fv("Régimen",g(54))}${fv("Oblig. Contabilidad",g(55))}
-    ${fv("Contrib. Especial",g(56))}${fv("Fecha Verif. SRI",g(57))}${fv("Resultado Verif.",g(58))}
-  </div></div>
-
-  <div class="ps2">${sh("IV","PERFIL ECONÓMICO Y ORIGEN DE FONDOS","#37474F")}
-  <div class="psb">
-    <div class="pg pg3">
-      ${fv("Ingreso Mensual USD",g(59))}${fv("Patrimonio USD",g(60))}${fv("Origen Fondos",g(61))}
-      <div class="pf" style="grid-column:1/-1">${fv("Descripción Origen",g(62))}</div>
-      <div class="pf" style="grid-column:1/-1">${fv("Respaldo Documental",g(63))}</div>
-    </div>
-  </div></div>
-
-  <div class="ps2">${sh("V","BENEFICIARIO FINAL","#558B2F")}
-  <div class="psb pg pg3">
-    ${fv("¿Actúa por cuenta propia?",g(64))}
-    ${g(65)?`<div class="pf" style="grid-column:2/4">${fv("Nombre Beneficiario Final",g(65))}</div>
-    ${fv("Cédula / RUC",g(66))}${fv("Teléfono",g(69))}${fv("Relación",g(71))}
-    <div class="pf" style="grid-column:1/-1">${fv("Dirección",g(68))}</div>`:""}
-  </div></div>
-
-  ${g(72)||g(73)?`<div class="ps2">${sh("VI","PERSONA JURÍDICA","#4527A0")}
-  <div class="psb pg pg3">
-    ${fv("Razón Social",g(72))}${fv("RUC",g(73))}${fv("Representante Legal",g(74))}
-    ${fv("CI Rep. Legal",g(75))}${fv("Estructura Compleja",g(76))}
-    <div class="pf" style="grid-column:1/-1">${fv("Beneficiarios Finales",g(77))}</div>
-  </div></div>`:""}
-
-  <div class="ps2">${sh("VII","CONSULTAS EN BASES PÚBLICAS","#00695C")}
-  <div class="psb">
-    <div class="pbas" style="margin-bottom:5px">
-      ${bases.map(b=>`<div class="pa"><div class="pb2${b.on?" on":""}">${b.on?"✓":""}</div><span style="font-size:7pt">${b.lb}</span></div>`).join("")}
-    </div>
-    ${fv("Fecha Consulta Bases",g(83))}
-  </div></div>
-
-  <div class="ps2">${sh("VIII","PERSONA EXPUESTA POLÍTICAMENTE (PEP)","#B71C1C")}
-  <div class="psb pg pg3">
-    ${fv("¿Es PEP?",g(84))}${fv("¿Familiar/relacionado PEP?",g(85))}
-    ${fv("Entidad",g(86))}${fv("Cargo",g(87))}${fv("Período",g(88))}
-  </div></div>
-
-  <div class="ps2">${sh("XI","MATRIZ DE EVALUACIÓN DE RIESGO","#BF360C")}
-  <div class="psb">
-    <div class="pl" style="margin-bottom:3px">Factores Identificados</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;margin-bottom:5px">
-      ${RFACTORES.map(f=>{const on=(g(94)||"").includes(f);return`<div class="pa"><div class="pb2${on?" on":""}">${on?"✓":""}</div><span style="font-size:7pt">${f}</span></div>`;}).join("")}
-      ${g(95)?`<div class="pa" style="grid-column:1/-1"><div class="pb2 on">✓</div><span style="font-size:7pt">Otro: ${g(95)}</span></div>`:""}
-    </div>
-    <div><span style="font-size:7pt;font-weight:700;color:#555">Nivel de Riesgo:&nbsp;</span>
-      <span class="pr" style="background:${rs.bg};color:${rs.c};border-color:${rs.c}">${nr||"— Sin asignar —"}</span>
-    </div>
-  </div></div>
-
-  <div class="ps2">${sh("XII","DECISIÓN INSTITUCIONAL","#1B3A6B")}
-  <div class="psb pg pg2">
-    ${fv("Decisión",g(97))}${fv("Observaciones",g(98))}
-  </div></div>
-
-  <div class="ps2">${sh("IX","DECLARACIÓN JURAMENTADA DEL CLIENTE","#1B3A6B")}
-  <div class="psb" style="font-size:7pt;line-height:1.4;color:#333">
-    Declaro bajo juramento que la información proporcionada es verdadera y que los fondos utilizados
-    en la presente operación tienen origen lícito. Autorizo a ${nom} a verificar la información
-    en bases públicas y privadas conforme la normativa vigente de prevención de lavado de activos.
-  </div></div>
-
-  <div class="pfir">
-    <div class="pfb"><div class="pfl"></div>
-      <div class="pfl2">Firma del Compareciente: ${g(89)||"_________________________"}<br>Fecha: ${g(90)||"____________________"}</div>
-    </div>
-    <div class="pfb"><div class="pfl"></div>
-      <div class="pfl2">Firma del Funcionario: ${g(92)||"_________________________"}<br>Fecha: ${g(93)||"____________________"}</div>
-    </div>
-  </div>
-  <div class="pft">Formulario Debida Diligencia — ${nom} | Prevención de Lavado de Activos ${anio} | N° Matriz: ${g(6)||"___"} | Generado: ${hoy}</div>
-  </div>`;
-  setTimeout(()=>window.print(),200);
+await _v15();
 }
-
-// ══════════════════════════════════════════════════════════
-// MODAL
-// ══════════════════════════════════════════════════════════
-function modal(icon,tit,msg,ok){
-  el("mi").textContent=icon; el("mt").textContent=tit; el("mm").textContent=msg;
-  el("mo").classList.add("show");
-  el("mbp").style.display=ok?"inline-block":"none";
-  el("mbo").textContent=ok?"+ Nuevo":"Cerrar";
-  el("mbo").onclick=ok?()=>{cerrarModal();limpiar();}:cerrarModal;
+function _f14(){
+try{ _v04=JSON.parse(localStorage.getItem("dd_hist")||"[]"); }catch(e){}
+el("hl").innerHTML=_v04.length
+? _v04.map((r,i)=>`<div class="hi" onclick="_f16(${i})">
+<div style="font-size:12px;font-weight:700;color:#1B3A6B">${r.nombre||"Sin nombre"} &nbsp;·&nbsp; N° ${r.nro||"—"}</div>
+<div class="hm">📅 ${r.fecha} &nbsp;|&nbsp; 👤 ${r.mat}</div>
+</div>`).join("")
+: '<p style="color:#888;font-size:12px;text-align:center;padding:20px">No hay registros guardados en este navegador.</p>';
+el("hp").classList.add("show");
 }
-function cerrarModal(){ el("mo").classList.remove("show"); }
-
-// ══════════════════════════════════════════════════════════
-// LIMPIAR
-// ══════════════════════════════════════════════════════════
-function limpiar(){
-  document.querySelectorAll("input[type=text],input[type=date],input[type=email],input[type=number],input[type=tel],select,textarea").forEach(e=>{e.value="";e.classList.remove("err-f");});
-  document.querySelectorAll("input[type=checkbox],input[type=radio]").forEach(e=>e.checked=false);
-  document.querySelectorAll(".ai,.bchk").forEach(e=>e.classList&&e.classList.remove("sel"));
-  document.querySelectorAll(".rp").forEach(p=>p.classList.remove("on"));
-  nivelRiesgo="";
-  ["bff","pepf"].forEach(id=>{const e=el(id);if(e)e.style.display="none";});
-  el("cny_flds").style.opacity="1"; el("cny_flds").style.pointerEvents="";
-  el("cny_notice").style.display="none";
+function _f15(){ el("hp").classList.remove("show"); }
+function _f16(i){
+const reg=_v04[i]; if(!reg) return;
+_f15();
+_f13(reg.datos, reg.mat);
 }
-
-// ══════════════════════════════════════════════════════════
-// CONEXIÓN
-// ══════════════════════════════════════════════════════════
-async function testConn(){
-  if(!CFG.scriptUrl){ el("sp").textContent="⚙ Configurar"; el("sp").className="err"; return; }
-  try{
-    el("sp").textContent="⏳ Probando..."; el("sp").className="saving";
-    await fetch(CFG.scriptUrl,{mode:"no-cors"});
-    apiOk=true;
-    el("sp").textContent="✓ Conectado"; el("sp").className="ok";
-    if(currentUser) el("bsv").disabled=false;
-  }catch(e){
-    apiOk=false; el("sp").textContent="✗ Error — clic ⚙"; el("sp").className="err";
-  }
+function _f12(){ _f13(_f10(), _v01); }
+function _f13(d, resp){
+const g=i=>d[i]||"";
+const nom=d[3]||_v13.nombre||"Institución";
+const anio=d[4]||_v13.anio||new Date().getFullYear();
+const actos=_v13.tipoActos.map((a,i)=>({lb:a,on:d[15+i]==="Sí"}));
+const bases=_v05.map((b,i)=>({lb:b,on:d[78+i]==="Sí"}));
+const nr=d[96]||"";
+const rs={BAJO:{bg:"#D1FAE5",c:"#2E7D32"},MEDIO:{bg:"#FEF3C7",c:"#B45309"},ALTO:{bg:"#FFEDD5",c:"#E65100"},"MUY ALTO":{bg:"#FEE2E2",c:"#B71C1C"}}[nr]||{bg:"#F3F4F6",c:"#555"};
+const hoy=new Date().toLocaleDateString("es-EC",{day:"2-digit",month:"2-digit",year:"numeric"});
+const fv=(lb,val)=>`<div class="pf"><div class="pl">${lb}</div><div class="pv${!val?" e":""}">${val||"—"}</div></div>`;
+const sh=(n,t,c)=>`<div class="psh" style="background:${c}"><div class="n">${n}</div>${t}</div>`;
+el("pd").innerHTML=`<div class="pw">
+<div class="ph">
+<div class="ph-l"><h1>FORMULARIO DE DEBIDA DILIGENCIA — ${nom.toUpperCase()}</h1>
+<p>Prevención de Lavado de Activos · ${anio}</p></div>
+<div class="ph-r">N° Registro: <strong>${g(0)||"—"}</strong><br>N° Matriz: <strong>${g(6)||"—"}</strong><br>Generado: ${hoy}</div>
+</div>
+<div class="pm">
+<div class="pmi"><div class="lb">Matrizador/a</div><div class="vl">${resp||"—"}</div></div>
+<div class="pmi"><div class="lb">Fecha Ingreso</div><div class="vl">${new Date().toLocaleDateString("es-EC")}</div></div>
+<div class="pmi"><div class="lb">N° Matriz</div><div class="vl">${g(6)||"—"}</div></div>
+<div class="pmi"><div class="lb">Estado</div><div class="vl">${g(5)||"PENDIENTE"}</div></div>
+</div>
+<div class="ps2">${sh("I","INFORMACIÓN GENERAL DE LA OPERACIÓN","#0D7377")}
+<div class="psb">
+<div class="pg pg3" style="margin-bottom:5px">
+${fv("N° Matriz",g(6))}${fv("Tipo Interviniente",g(7))}${fv("Fecha Operación",g(8))}
+${fv("Cuantía USD",g(9))}${fv("Avalúo Catastral USD",g(10))}${fv("Forma de Pago",g(11))}
+${fv("Entidad Financiera",g(12))}${fv("N° Cuenta",g(13))}${fv("Tipo Cuenta",g(14))}
+</div>
+<div class="pl" style="margin-bottom:3px">Tipo de Acto o Contrato</div>
+<div class="pac">
+${actos.map(a=>`<div class="pa"><div class="pb2${a.on?" on":""}">${a.on?"✓":""}</div><span>${a.lb}</span></div>`).join("")}
+${g(29)?`<div class="pa" style="grid-column:1/-1"><div class="pb2 on">✓</div><span>Otro: ${g(29)}</span></div>`:""}
+</div>
+</div></div>
+<div class="ps2">${sh("II","IDENTIFICACIÓN DEL CLIENTE","#1565C0")}
+<div class="psb">
+<div class="pg pg3">
+${fv("Tipo ID",g(30))}${fv("Cédula / Pasaporte",g(31))}${fv("RUC",g(33))}
+<div class="pf" style="grid-column:1/-1">${fv("Nombres Completos",g(32))}</div>
+${fv("Nacionalidad",g(34))}${fv("Estado Civil",g(35))}${fv("Profesión",g(36))}
+<div class="pf" style="grid-column:1/-1">${fv("Actividad Económica",g(37))}</div>
+<div class="pf" style="grid-column:1/-1">${fv("Dirección",g(38))}</div>
+${fv("Ciudad / Provincia",g(39))}${fv("Teléfono",g(40))}${fv("Correo",g(41))}
+<div class="pf" style="grid-column:1/-1">${fv("Empresa",g(42))}</div>
+${fv("Tiempo Actividad (años)",g(43))}
+</div>
+${g(44)||g(45)?`<div style="margin-top:6px;border-top:1px dashed #ccc;padding-top:5px">
+<div class="pl" style="color:#6A1B9A;margin-bottom:3px">CÓNYUGE / CONVIVIENTE</div>
+<div class="pg pg3">
+${fv("Cédula Cónyuge",g(44))}<div class="pf" style="grid-column:2/4">${fv("Nombres Cónyuge",g(45))}</div>
+${fv("Teléfono",g(50))}${fv("Correo",g(51))}${fv("Empresa",g(52))}
+</div></div>`:""}
+</div></div>
+<div class="ps2">${sh("III","INFORMACIÓN TRIBUTARIA","#E65100")}
+<div class="psb pg pg3">
+${fv("Estado RUC",g(53))}${fv("Régimen",g(54))}${fv("Oblig. Contabilidad",g(55))}
+${fv("Contrib. Especial",g(56))}${fv("Fecha Verif. SRI",g(57))}${fv("Resultado Verif.",g(58))}
+</div></div>
+<div class="ps2">${sh("IV","PERFIL ECONÓMICO Y ORIGEN DE FONDOS","#37474F")}
+<div class="psb">
+<div class="pg pg3">
+${fv("Ingreso Mensual USD",g(59))}${fv("Patrimonio USD",g(60))}${fv("Origen Fondos",g(61))}
+<div class="pf" style="grid-column:1/-1">${fv("Descripción Origen",g(62))}</div>
+<div class="pf" style="grid-column:1/-1">${fv("Respaldo Documental",g(63))}</div>
+</div>
+</div></div>
+<div class="ps2">${sh("V","BENEFICIARIO FINAL","#558B2F")}
+<div class="psb pg pg3">
+${fv("¿Actúa por cuenta propia?",g(64))}
+${g(65)?`<div class="pf" style="grid-column:2/4">${fv("Nombre Beneficiario Final",g(65))}</div>
+${fv("Cédula / RUC",g(66))}${fv("Teléfono",g(69))}${fv("Relación",g(71))}
+<div class="pf" style="grid-column:1/-1">${fv("Dirección",g(68))}</div>`:""}
+</div></div>
+${g(72)||g(73)?`<div class="ps2">${sh("VI","PERSONA JURÍDICA","#4527A0")}
+<div class="psb pg pg3">
+${fv("Razón Social",g(72))}${fv("RUC",g(73))}${fv("Representante Legal",g(74))}
+${fv("CI Rep. Legal",g(75))}${fv("Estructura Compleja",g(76))}
+<div class="pf" style="grid-column:1/-1">${fv("Beneficiarios Finales",g(77))}</div>
+</div></div>`:""}
+<div class="ps2">${sh("VII","CONSULTAS EN _v05 PÚBLICAS","#00695C")}
+<div class="psb">
+<div class="pbas" style="margin-bottom:5px">
+${bases.map(b=>`<div class="pa"><div class="pb2${b.on?" on":""}">${b.on?"✓":""}</div><span style="font-size:7pt">${b.lb}</span></div>`).join("")}
+</div>
+${fv("Fecha Consulta Bases",g(83))}
+</div></div>
+<div class="ps2">${sh("VIII","PERSONA EXPUESTA POLÍTICAMENTE (PEP)","#B71C1C")}
+<div class="psb pg pg3">
+${fv("¿Es PEP?",g(84))}${fv("¿Familiar/relacionado PEP?",g(85))}
+${fv("Entidad",g(86))}${fv("Cargo",g(87))}${fv("Período",g(88))}
+</div></div>
+<div class="ps2">${sh("XI","MATRIZ DE EVALUACIÓN DE RIESGO","#BF360C")}
+<div class="psb">
+<div class="pl" style="margin-bottom:3px">Factores Identificados</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;margin-bottom:5px">
+${_v06.map(f=>{const on=(g(94)||"").includes(f);return`<div class="pa"><div class="pb2${on?" on":""}">${on?"✓":""}</div><span style="font-size:7pt">${f}</span></div>`;}).join("")}
+${g(95)?`<div class="pa" style="grid-column:1/-1"><div class="pb2 on">✓</div><span style="font-size:7pt">Otro: ${g(95)}</span></div>`:""}
+</div>
+<div><span style="font-size:7pt;font-weight:700;color:#555">Nivel de Riesgo:&nbsp;</span>
+<span class="pr" style="background:${rs.bg};color:${rs.c};border-color:${rs.c}">${nr||"— Sin asignar —"}</span>
+</div>
+</div></div>
+<div class="ps2">${sh("XII","DECISIÓN INSTITUCIONAL","#1B3A6B")}
+<div class="psb pg pg2">
+${fv("Decisión",g(97))}${fv("Observaciones",g(98))}
+</div></div>
+<div class="ps2">${sh("IX","DECLARACIÓN JURAMENTADA DEL CLIENTE","#1B3A6B")}
+<div class="psb" style="font-size:7pt;line-height:1.4;color:#333">
+Declaro bajo juramento que la información proporcionada es verdadera y que los fondos utilizados
+en la presente operación tienen origen lícito. Autorizo a ${nom} a verificar la información
+en bases públicas y privadas conforme la normativa vigente de prevención de lavado de activos.
+</div></div>
+<div class="pfir">
+<div class="pfb"><div class="pfl"></div>
+<div class="pfl2">Firma del Compareciente: ${g(89)||"_________________________"}<br>Fecha: ${g(90)||"____________________"}</div>
+</div>
+<div class="pfb"><div class="pfl"></div>
+<div class="pfl2">Firma del Funcionario: ${g(92)||"_________________________"}<br>Fecha: ${g(93)||"____________________"}</div>
+</div>
+<div class="pfb"><div class="pfl"></div>
+<div class="pfl2">Firma del Notario/a<br>Sello y Rúbrica<br>Fecha: ____________________</div>
+</div>
+</div>
+<div class="pft">Formulario Debida Diligencia — ${nom} | Prevención de Lavado de Activos ${anio} | N° Matriz: ${g(6)||"___"} | Generado: ${hoy}</div>
+</div>`;
+setTimeout(()=>window.print(),200);
 }
-
-// ══════════════════════════════════════════════════════════
-// ADMIN
-// ══════════════════════════════════════════════════════════
-function abrirAdmin(){
-  el("ao").style.display="flex"; el("alv").style.display="block"; el("apv").style.display="none";
-  el("api").value=""; el("ape").style.display="none";
-  setTimeout(()=>el("api").focus(),100);
+function _f17(icon,tit,msg,ok){
+el("mi").textContent=icon; el("mt").textContent=tit; el("mm").textContent=msg;
+el("mo").classList.add("show");
+el("mbp").style.display=ok?"inline-block":"none";
+el("mbo").textContent=ok?"+ Nuevo":"Cerrar";
+el("mbo").onclick=ok?()=>{_f18();_f11();}:_f18;
 }
-function cerrarAdmin(){ el("ao").style.display="none"; }
-function chkP(){
-  if(el("api").value===(CFG.pass||PASS_DEF)){
-    el("alv").style.display="none"; el("apv").style.display="block";
-    el("cn").value=CFG.nombre||"";
-    el("ca").value=CFG.anio||"";
-    el("cs").value=CFG.scriptUrl||"";
-    el("cp").value="";
-    el("cm").value=(CFG.matrizadores||[]).join("\n");
-    el("cac").value=(CFG.tipoActos||[]).join("\n");
-    el("cna").value=(CFG.nacionalidades||[]).join("\n");
-    el("cpr").value=(CFG.profesiones||[]).join("\n");
-  }else{ el("ape").style.display="block"; el("api").focus(); }
+function _f18(){ el("mo").classList.remove("show"); }
+function _f11(){
+document.querySelectorAll("input[type=text],input[type=date],input[type=email],input[type=number],input[type=tel],select,textarea").forEach(e=>{e.value="";e.classList.remove("err-f");});
+document.querySelectorAll("input[type=checkbox],input[type=radio]").forEach(e=>e.checked=false);
+document.querySelectorAll(".ai,.bchk").forEach(e=>e.classList&&e.classList.remove("sel"));
+document.querySelectorAll(".rp").forEach(p=>p.classList.remove("on"));
+_v02="";
+["bff","pepf"].forEach(id=>{const e=el(id);if(e)e.style.display="none";});
+el("cny_flds").style.opacity="1"; el("cny_flds").style.pointerEvents="";
+el("cny_notice").style.display="none";
 }
-async function probarScript(){
-  const url=el("cs").value.trim(), res=el("csr");
-  if(!url){ res.textContent="⚠ Ingrese URL"; res.style.color="#E65100"; return; }
-  res.textContent="⏳ Probando..."; res.style.color="#E65100";
-  try{
-    await fetch(url,{mode:"no-cors"});
-    res.textContent="✅ Script responde OK"; res.style.color="#2E7D32";
-  }catch(e){ res.textContent="❌ No responde"; res.style.color="#B71C1C"; }
+async function _f07(){
+if(!_v13.scriptUrl){ el("sp").textContent="⚙ Configurar"; el("sp").className="err"; return; }
+try{
+el("sp").textContent="⏳ Probando..."; el("sp").className="saving";
+await fetch(_v13.scriptUrl,{mode:"no-cors"});
+_v03=true;
+el("sp").textContent="✓ Conectado"; el("sp").className="ok";
+if(_v01) el("bsv").disabled=false;
+}catch(e){
+_v03=false; el("sp").textContent="✗ Error — clic ⚙"; el("sp").className="err";
 }
-function guardarCFG(){
-  const np=el("cp").value.trim();
-  CFG.nombre   =el("cn").value.trim();
-  CFG.anio     =el("ca").value.trim();
-  CFG.scriptUrl=el("cs").value.trim();
-  if(np) CFG.pass=np;
-  CFG.matrizadores  =el("cm").value.split("\n").map(s=>s.trim()).filter(Boolean);
-  CFG.tipoActos     =el("cac").value.split("\n").map(s=>s.trim()).filter(Boolean);
-  CFG.nacionalidades=el("cna").value.split("\n").map(s=>s.trim()).filter(Boolean);
-  CFG.profesiones   =el("cpr").value.split("\n").map(s=>s.trim()).filter(Boolean);
-  localStorage.setItem("dd_cfg",JSON.stringify(CFG));
-  const m=el("cmsg");
-  m.style.display="block"; m.style.background="#D1FAE5"; m.style.color="#065F46";
-  m.textContent="✅ Configuración guardada. Recargando...";
-  setTimeout(()=>{ cerrarAdmin(); location.reload(); },1400);
 }
-
-// INICIO
-buildForm();
-testConn();
+function _f01(){
+el("ao").style.display="flex"; el("alv").style.display="block"; el("apv").style.display="none";
+el("api").value=""; el("ape").style.display="none";
+setTimeout(()=>el("api").focus(),100);
+}
+function _f02(){ el("ao").style.display="none"; }
+function _f03(){
+if(el("api").value===(_v13.pass||_v08)){
+el("alv").style.display="none"; el("apv").style.display="block";
+el("cn").value=_v13.nombre||"";
+el("ca").value=_v13.anio||"";
+el("cs").value=_v13.scriptUrl||"";
+el("cp").value="";
+el("cm").value=(_v13.matrizadores||[]).join("\n");
+el("cac").value=(_v13.tipoActos||[]).join("\n");
+el("cna").value=(_v13.nacionalidades||[]).join("\n");
+el("cpr").value=(_v13.profesiones||[]).join("\n");
+}else{ el("ape").style.display="block"; el("api").focus(); }
+}
+async function _f04(){
+const url=el("cs").value.trim(), res=el("csr");
+if(!url){ res.textContent="⚠ Ingrese URL"; res.style.color="#E65100"; return; }
+res.textContent="⏳ Probando..."; res.style.color="#E65100";
+try{
+await fetch(url,{mode:"no-cors"});
+res.textContent="✅ Script responde OK"; res.style.color="#2E7D32";
+}catch(e){ res.textContent="❌ No responde"; res.style.color="#B71C1C"; }
+}
+function _f05(){
+const np=el("cp").value.trim();
+_v13.nombre   =el("cn").value.trim();
+_v13.anio     =el("ca").value.trim();
+_v13.scriptUrl=el("cs").value.trim();
+if(np) _v13.pass=np;
+_v13.matrizadores  =el("cm").value.split("\n").map(s=>s.trim()).filter(Boolean);
+_v13.tipoActos     =el("cac").value.split("\n").map(s=>s.trim()).filter(Boolean);
+_v13.nacionalidades=el("cna").value.split("\n").map(s=>s.trim()).filter(Boolean);
+_v13.profesiones   =el("cpr").value.split("\n").map(s=>s.trim()).filter(Boolean);
+localStorage.setItem("dd_cfg",JSON.stringify(_v13));
+const m=el("cmsg");
+m.style.display="block"; m.style.background="#D1FAE5"; m.style.color="#065F46";
+m.textContent="✅ Configuración guardada. Recargando...";
+setTimeout(()=>{ _f02(); location.reload(); },1400);
+}
+_f06();
+_f07();
 </script>
 </body>
 </html>
